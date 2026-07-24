@@ -1,0 +1,204 @@
+{
+  "brand": "Jordy Graven",
+  "nav": [
+    { "label": "Work", "href": "#work" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "Toolkit", "href": "#toolkit" },
+    { "label": "Case studies", "href": "#case-studies" },
+    { "label": "About", "href": "#about" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "eyebrow": "AI-driven product manager",
+    "headline": "I build product experiences that feel simple, useful, and intelligently automated.",
+    "intro": "I’m a product leader with 10+ years of professional experience across regulated industries and product development. I work at the intersection of strategy, automation, and measurable outcomes, and I’m originally from the Netherlands, relocating to Kuala Lumpur in September 2026.",
+    "subline": "Spouse visa (LTSVP) expected in February 2027, directly available via Employment Pass sponsorship.",
+    "ctaPrimary": { "label": "Open CV", "href": "Resume/Jordy_Graven_CV.pdf", "download": true },
+    "ctaSecondary": { "label": "WhatsApp", "href": "https://wa.me/31614831786", "icon": "icons/whatsapp.svg" },
+    "ctaTertiary": { "label": "LinkedIn", "href": "https://www.linkedin.com/in/jordy-graven-52429265/" },
+    "highlights": [
+      { "title": "10+ years", "detail": "professional experience" },
+      { "title": "5+ years", "detail": "in product development" },
+      { "title": "Feb 2027", "detail": "visa timeline" }
+    ]
+  },
+  "valueCards": [
+    {
+      "title": "Product strategy",
+      "description": "I turn unclear growth challenges into practical product direction, clear priorities, and healthy decision-making.",
+      "tags": ["Discovery", "Roadmapping", "Portfolio thinking"]
+    },
+    {
+      "title": "Automation and AI",
+      "description": "I design AI-assisted workflows, agentic prototypes, and operating systems that make teams faster without losing control.",
+      "tags": ["AI concepts", "Prompt design", "Automation"]
+    },
+    {
+      "title": "Delivery and experimentation",
+      "description": "I connect product, data, and operations so ideas move from prototype to impact with structure and pace.",
+      "tags": ["Experimentation", "Data", "Delivery"]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Customer Services Agent",
+      "company": "ONVZ Health Insurances",
+      "period": "Nov 2014 — Jul 2021",
+      "summary": "Started with direct customer problem-solving and grew into leading journey improvements in a complex regulated environment.",
+      "type": "standard"
+    },
+    {
+      "role": "Product Owner",
+      "company": "Coolblue",
+      "period": "Jul 2021 — Jan 2024",
+      "summary": "Built a cross-sell orchestration platform and recommendation engine that connected insight, automation, and commercial outcomes.",
+      "type": "standard"
+    },
+    {
+      "role": "Sabbatical",
+      "company": "Travel & reflection",
+      "period": "Jan 2024 — Jun 2024",
+      "summary": "A short season of travel, cultural immersion, and personal reflection that reset how I work and lead.",
+      "type": "compact"
+    },
+    {
+      "role": "Data Product Owner",
+      "company": "Coolblue",
+      "period": "Jun 2024 — Jan 2025",
+      "summary": "Created a Data-as-a-Product vision for the central data platform team and aligned stakeholders around a strong operating model.",
+      "type": "recent"
+    },
+    {
+      "role": "Product Manager",
+      "company": "Coolblue Energie",
+      "period": "Jan 2025 — Present",
+      "summary": "Building growth-oriented product experiences in a regulated energy market while strengthening end-to-end delivery and AI-enabled support flows.",
+      "type": "present"
+    }
+  ],
+  "toolkit": {
+    "title": "Jordy's Toolkit",
+    "groups": [
+      {
+        "title": "Product Delivery Tools",
+        "items": [
+          { "name": "Jira", "icon": "jira" },
+          { "name": "Figma", "icon": "figma" },
+          { "name": "Lucid", "icon": "lucid" },
+          { "name": "Miro", "icon": "miro" },
+          { "name": "Google Analytics", "icon": "googleanalytics" },
+          { "name": "SQL", "icon": "mysql" },
+          { "name": "Looker", "icon": "looker" }
+        ]
+      },
+      {
+        "title": "AI Applications",
+        "items": [
+          { "name": "Claude (Code)", "icon": "claude" },
+          { "name": "n8n", "icon": "n8n" },
+          { "name": "Glean", "icon": "glean" },
+          { "name": "Replit", "icon": "replit" },
+          { "name": "Base44", "icon": "base44" },
+          { "name": "Lovable", "icon": "lovable" },
+          { "name": "v0.app", "icon": "v0" },
+          { "name": "Gemini", "icon": "googlebard" },
+          { "name": "ChatGPT", "icon": "openai" },
+          { "name": "Docker", "icon": "docker" },
+          { "name": "GitHub", "icon": "github" },
+          { "name": "Vercel", "icon": "vercel" },
+          { "name": "VS Code", "icon": "vscode" },
+          { "name": "Ngrok", "icon": "ngrok" },
+          { "name": "PostHog", "icon": "posthog" }
+        ]
+      }
+    ]
+  },
+  "caseStudies": [
+    {
+      "title": "Scaling AI-driven customer and sales agents",
+      "summary": "A practical use case that moved from prototype to controlled rollout in a regulated environment.",
+      "details": {
+        "context": "Coolblue Energie",
+        "challenge": "Launch a customer-service chatbot and recommendation agent without overstepping compliance boundaries or harming trust.",
+        "approach": "Used a structured discovery loop, prompt design, and a staged rollout plan to safely test in production while maintaining oversight.",
+        "result": "The solution reduced friction, improved response quality, and created a scalable operating model for future AI-assisted support.",
+        "metrics": ["<1% hallucination rate", "Lower cost per contact", "Reduced fraud exposure"]
+      },
+      "aiApplications": ["AI assistant workflow", "Recommendation agent"]
+    },
+    {
+      "title": "High-stakes omnichannel pivot and fraud mitigation",
+      "summary": "A fast-moving change program that kept the customer journey compliant under pressure.",
+      "details": {
+        "context": "Coolblue",
+        "challenge": "Re-architect the in-store contracting funnel under a hard regulatory deadline while protecting the business from incentive-based fraud.",
+        "approach": "Built a greylisting system and redesigned the journey so compliance and customer experience could advance together.",
+        "result": "The change protected 18 stores, preserved legal compliance, and improved attached margin without adding friction.",
+        "metrics": ["100% legal compliance", "18 stores protected", "Higher attached margin"]
+      },
+      "aiApplications": ["Fraud pattern detection", "Decision support assistant"]
+    },
+    {
+      "title": "Building a cross-sell orchestration platform",
+      "summary": "A product system that blended automation, human control, and measurable commercial impact.",
+      "details": {
+        "context": "Coolblue",
+        "challenge": "Create a centralized way to connect recommendation logic, manual overrides, and commercial workflows across multiple stakeholders.",
+        "approach": "Designed a platform that combined algorithmic enablement with human decision support so adoption could scale quickly.",
+        "result": "More than 100 stakeholders used the platform and recommendation effectiveness increased as the solution matured.",
+        "metrics": ["100+ active users", "Improved recommendation effectiveness", "Scalable operating model"]
+      },
+      "aiApplications": ["Recommendation engine", "Decision support"]
+    },
+    {
+      "title": "Coming soon",
+      "summary": "A fresh case study will be added here as soon as the next story is ready.",
+      "details": {},
+      "aiApplications": [],
+      "comingSoon": true
+    },
+    {
+      "title": "Coming soon",
+      "summary": "A deeper look into a recent launch or operating model will appear here soon.",
+      "details": {},
+      "aiApplications": [],
+      "comingSoon": true
+    },
+    {
+      "title": "Coming soon",
+      "summary": "I’m collecting the next example that shows the blend of design, automation, and delivery in practice.",
+      "details": {},
+      "aiApplications": [],
+      "comingSoon": true
+    }
+  ],
+  "about": {
+    "title": "About me",
+    "intro": "I’m curious, energetic, and happiest when I’m learning, moving, and building with good people. Outside of work I travel, train, explore food, and keep chasing new experiences.",
+    "traits": [
+      "Loyal — Long, trusting relationships at work and beyond.",
+      "Positive — Energy is a force multiplier on every team I join.",
+      "Adventurous — From Hyrox arenas to Southeast Asian backroads.",
+      "Energetic — I move fast, but always with intention."
+    ]
+  },
+  "gallery": [
+    { "src": "Photos/About me photos/Foto New York.JPG", "alt": "Jordy in New York" },
+    { "src": "Photos/About me photos/Foto Hyrox.jpg", "alt": "Jordy after a Hyrox event" },
+    { "src": "Photos/About me photos/Foto diner.jpg", "alt": "Jordy at dinner with friends" },
+    { "src": "Photos/About me photos/Foto werk 2.jpg", "alt": "Jordy at the workplace" },
+    { "src": "Photos/About me photos/Foto werk.jpg", "alt": "Jordy in the office" },
+    { "src": "Photos/About me photos/Foto bruiloft.jpg", "alt": "Jordy at a wedding" },
+    { "src": "Photos/About me photos/IMG_0886.JPG", "alt": "Jordy in a relaxed setting" },
+    { "src": "Photos/About me photos/IMG_7600.JPG", "alt": "Jordy at a personal event" },
+    { "src": "Photos/About me photos/IMG_9354.jpg", "alt": "Jordy in a candid moment" }
+  ],
+  "contact": {
+    "intro": "If you’re looking for a product-minded operator who can bridge strategy, AI, and execution, I’d love to hear from you.",
+    "channels": [
+      { "type": "WhatsApp", "label": "WhatsApp", "value": "+31 6 14831786", "href": "https://wa.me/31614831786" },
+      { "type": "Email", "label": "Email", "value": "jordygraven@gmail.com", "href": "mailto:jordygraven@gmail.com" },
+      { "type": "LinkedIn", "label": "LinkedIn", "value": "linkedin.com/in/jordy-graven-52429265", "href": "https://www.linkedin.com/in/jordy-graven-52429265/" }
+    ]
+  }
+}

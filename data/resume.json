@@ -1,0 +1,61 @@
+{
+  "profile": {
+    "name": "Jordy Graven",
+    "title": "Product Manager • AI & automation-minded operator",
+    "summary": "I build product strategies and intelligent workflows that improve conversion, operational efficiency, and customer experience in complex environments."
+  },
+  "experience": [
+    {
+      "role": "Product Manager",
+      "company": "Coolblue Energie",
+      "period": "Jan 2025 — Present",
+      "highlights": [
+        "Shaped product direction for growth and conversion in a regulated energy market.",
+        "Led the shift toward autonomous end-to-end delivery across the product portfolio.",
+        "Introduced AI-assisted support flows and experimentation practices to improve outcomes."
+      ]
+    },
+    {
+      "role": "Data Product Owner",
+      "company": "Coolblue",
+      "period": "Jun 2024 — Jan 2025",
+      "highlights": [
+        "Created and advocated a Data-as-a-Product strategy for the central data platform team.",
+        "Aligned product, data, and commercial stakeholders around a shared operating model."
+      ]
+    },
+    {
+      "role": "Product Owner",
+      "company": "Coolblue",
+      "period": "Jul 2021 — Jan 2024",
+      "highlights": [
+        "Built an internal cross-sell orchestration platform and dynamic recommendation engine.",
+        "Improved cross-sell performance through algorithmic decisioning and human override controls."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master of Science in Business Administration",
+      "institution": "Vrije Universiteit Amsterdam",
+      "focus": "Strategic Management"
+    },
+    {
+      "degree": "Bachelor in Business Administration",
+      "institution": "Hogeschool Utrecht"
+    }
+  ],
+  "certifications": [
+    "Professional Scrum Product Owner I",
+    "Professional Scrum Product Owner II"
+  ],
+  "skills": [
+    "Product strategy",
+    "AI prototyping",
+    "Automation workflows",
+    "Data products",
+    "SQL",
+    "A/B testing",
+    "Stakeholder alignment"
+  ]
+}
