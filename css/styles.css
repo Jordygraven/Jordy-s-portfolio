@@ -72,11 +72,13 @@ img {
   text-decoration: none;
   font-weight: 700;
   letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .site-nav {
   display: flex;
-  gap: 18px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
@@ -92,7 +94,7 @@ img {
 
 .header-actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
@@ -158,8 +160,8 @@ img {
 }
 
 .button.small {
-  padding: 8px 12px;
-  font-size: 0.9rem;
+  padding: 7px 11px;
+  font-size: 0.88rem;
 }
 
 .button.secondary {
@@ -247,18 +249,18 @@ img {
 .switcher-select summary {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 10px;
+  gap: 5px;
+  padding: 7px 9px;
   border-radius: 999px;
   background: white;
   border: 1px solid var(--border);
   color: var(--text);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   cursor: pointer;
   list-style: none;
   white-space: nowrap;
-  max-width: 150px;
+  max-width: 170px;
   overflow: hidden;
   text-overflow: ellipsis;
 }

@@ -463,50 +463,29 @@ function renderSwitcher(data) {
   const actions = document.querySelector('.header-actions');
   if (!actions || !(isRootPage() || switcherFlagPresent())) return;
 
-  const roles = [];
-  const modes = [];
-  data.roleSwitcher.forEach(option => {
-    if (!roles.some(r => r.role === option.role)) {
-      roles.push({ role: option.role, label: option.label });
-    }
-    if (!modes.some(m => m.mode === option.mode)) {
-      modes.push({ mode: option.mode, label: option.sublabel, comingSoon: !!option.comingSoon });
-    }
-  });
+  const current = data.roleSwitcher.find(o => o.role === pageRole && o.mode === pageMode) || data.roleSwitcher[0];
+  const triggerLabel = `${current.shortLabel} · ${current.sublabel}`;
 
-  const findHref = (role, mode) => {
-    const match = data.roleSwitcher.find(o => o.role === role && o.mode === mode);
-    return match ? match.href : '#';
-  };
-
-  const roleMenu = roles.map(r => `
-    <a href="${escapeHtml(findHref(r.role, pageMode))}" data-switch="role" class="${r.role === pageRole ? 'current' : ''}">${escapeHtml(r.label)}</a>
-  `).join('');
-
-  const modeMenu = modes.map(m => `
-    <a href="${escapeHtml(findHref(pageRole, m.mode))}" data-switch="mode" class="${m.mode === pageMode ? 'current' : ''} ${m.comingSoon ? 'is-soon' : ''}" ${m.comingSoon ? `title="${escapeHtml(m.label)} offering is still being built — early conversations welcome"` : ''}>
-      <span>${escapeHtml(m.label)}</span>${m.comingSoon ? '<span class="soon-tag">Soon</span>' : ''}
-    </a>
-  `).join('');
-
-  const currentRoleLabel = (roles.find(r => r.role === pageRole) || roles[0]).label;
-  const currentModeLabel = (modes.find(m => m.mode === pageMode) || modes[0]).label;
+  const rows = data.roleSwitcher.map(option => {
+    const isCurrent = option.role === pageRole && option.mode === pageMode;
+    return `
+      <a href="${escapeHtml(option.href)}" data-switcher-option="${escapeHtml(option.href)}" class="${isCurrent ? 'current' : ''} ${option.comingSoon ? 'is-soon' : ''}" ${option.comingSoon ? `title="${escapeHtml(option.sublabel)} offering is still being built — early conversations welcome"` : ''}>
+        <span>${escapeHtml(option.shortLabel)} · ${escapeHtml(option.sublabel)}</span>${option.comingSoon ? '<span class="soon-tag">Soon</span>' : ''}
+      </a>
+    `;
+  }).join('');
 
   const wrapper = document.createElement('div');
   wrapper.className = 'switcher-group';
   wrapper.innerHTML = `
-    <details class="switcher-select" id="role-select">
-      <summary>${escapeHtml(currentRoleLabel)}</summary>
-      <div class="switcher-select-menu">${roleMenu}</div>
-    </details>
-    <details class="switcher-select" id="mode-select">
-      <summary>${escapeHtml(currentModeLabel)}</summary>
-      <div class="switcher-select-menu">${modeMenu}</div>
+    <details class="switcher-select" id="role-mode-select">
+      <summary>${escapeHtml(triggerLabel)}</summary>
+      <div class="switcher-select-menu">${rows}</div>
     </details>
   `;
   actions.insertBefore(wrapper, actions.firstChild);
 
-  wrapper.querySelectorAll('[data-switch]').forEach(link => {
+  wrapper.querySelectorAll('[data-switcher-option]').forEach(link => {
     link.addEventListener('click', (event) => {
       if (link.classList.contains('current')) {
         event.preventDefault();
@@ -515,8 +494,7 @@ function renderSwitcher(data) {
       }
       setSwitcherFlag();
       trackEvent('header_switcher_selected', {
-        destination: link.getAttribute('href'),
-        via: link.dataset.switch,
+        destination: link.dataset.switcherOption,
         page: pageType,
         role: pageRole,
         mode: pageMode,
