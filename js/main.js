@@ -103,6 +103,7 @@ function setupNavToggle() {
 }
 
 setupNavToggle();
+renderHeaderIcons();
 
 function getContactIcon(type) {
   switch (type) {
@@ -115,6 +116,12 @@ function getContactIcon(type) {
     default:
       return '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.94 8.5A1.56 1.56 0 1 0 6.94 5.38a1.56 1.56 0 0 0 0 3.12ZM5.5 9.75h2.88V18H5.5zM10.7 9.75h2.76v1.12h.04c.38-.72 1.31-1.48 2.7-1.48 2.89 0 3.42 1.9 3.42 4.37V18H16.2v-7.59c0-1.81-.03-4.14-2.52-4.14-2.52 0-2.91 1.97-2.91 4V18H10.7z"/></svg>';
   }
+}
+
+function renderHeaderIcons() {
+  document.querySelectorAll('.button-icon[data-icon]').forEach(el => {
+    el.innerHTML = getContactIcon(el.dataset.icon);
+  });
 }
 
 function getContactClass(type) {
@@ -284,10 +291,13 @@ function renderSite(data, role, mode) {
         <div class="hero-actions">
           <a class="button" href="${escapeHtml(hero.cta.cv.href)}" ${hero.cta.cv.download ? 'download' : ''}>${escapeHtml(hero.cta.cv.label)}</a>
           <a class="button secondary" href="${escapeHtml(hero.cta.whatsapp.href)}" target="_blank" rel="noreferrer">
-            ${hero.cta.whatsapp.icon ? `<img src="${escapeHtml(hero.cta.whatsapp.icon)}" alt="" />` : ''}
+            <span class="button-icon">${getContactIcon('WhatsApp')}</span>
             ${escapeHtml(hero.cta.whatsapp.label)}
           </a>
-          <a class="button secondary" href="${escapeHtml(hero.cta.linkedin.href)}" target="_blank" rel="noreferrer">${escapeHtml(hero.cta.linkedin.label)}</a>
+          <a class="button secondary" href="${escapeHtml(hero.cta.linkedin.href)}" target="_blank" rel="noreferrer">
+            <span class="button-icon">${getContactIcon('LinkedIn')}</span>
+            ${escapeHtml(hero.cta.linkedin.label)}
+          </a>
         </div>
       </div>
       <div class="hero-panel">

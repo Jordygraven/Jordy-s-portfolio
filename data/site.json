@@ -18,7 +18,7 @@
       ],
       "cta": {
         "cv": { "label": "Open CV", "href": "Resume/Jordy_Graven_CV.pdf", "download": true },
-        "whatsapp": { "label": "WhatsApp", "href": "https://wa.me/31614831786", "icon": "icons/whatsapp.svg" },
+        "whatsapp": { "label": "WhatsApp", "href": "https://wa.me/31614831786" },
         "linkedin": { "label": "LinkedIn", "href": "https://www.linkedin.com/in/jordy-graven-52429265/" }
       }
     },
