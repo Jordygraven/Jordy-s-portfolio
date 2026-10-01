@@ -171,15 +171,16 @@ img {
   box-shadow: none;
 }
 
-.linkedin-link svg {
-  width: 16px;
-  height: 16px;
-  color: #0a66c2;
+.button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.button img {
-  width: 18px;
-  height: 18px;
+.button-icon svg {
+  width: 16px;
+  height: 16px;
+  display: block;
 }
 
 .hero {
