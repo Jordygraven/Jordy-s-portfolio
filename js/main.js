@@ -436,28 +436,96 @@ function renderResume(data) {
   `;
 }
 
-function renderHeaderSwitcher(data) {
-  const menu = document.getElementById('role-switcher-menu');
-  if (!menu) return;
+const SWITCHER_SESSION_KEY = 'switcherVisitedFromHub';
 
-  menu.innerHTML = data.roleSwitcher.map(option => {
-    const isCurrent = option.role === pageRole && option.mode === pageMode;
-    return `
-      <a href="${escapeHtml(option.href)}" data-switcher-option="${escapeHtml(option.href)}" class="${isCurrent ? 'current' : ''}">
-        <span>${escapeHtml(option.label)} · ${escapeHtml(option.sublabel)}</span>
-        ${option.comingSoon ? '<span class="switcher-menu-badge">Coming soon</span>' : ''}
-      </a>
-    `;
-  }).join('');
+function isRootPage() {
+  const path = window.location.pathname;
+  return path === '/' || path === '' || /\/index\.html$/.test(path);
+}
 
-  menu.querySelectorAll('[data-switcher-option]').forEach(link => {
-    link.addEventListener('click', () => {
-      trackEvent('header_switcher_selected', { destination: link.dataset.switcherOption, page: pageType, role: pageRole, mode: pageMode });
+function switcherFlagPresent() {
+  try {
+    return sessionStorage.getItem(SWITCHER_SESSION_KEY) === '1';
+  } catch (e) {
+    return false;
+  }
+}
+
+function setSwitcherFlag() {
+  try {
+    sessionStorage.setItem(SWITCHER_SESSION_KEY, '1');
+  } catch (e) {
+    // sessionStorage unavailable (e.g. private browsing); navigation still proceeds.
+  }
+}
+
+function renderSwitcher(data) {
+  const actions = document.querySelector('.header-actions');
+  if (!actions || !(isRootPage() || switcherFlagPresent())) return;
+
+  const roles = [];
+  const modes = [];
+  data.roleSwitcher.forEach(option => {
+    if (!roles.some(r => r.role === option.role)) {
+      roles.push({ role: option.role, label: option.label });
+    }
+    if (!modes.some(m => m.mode === option.mode)) {
+      modes.push({ mode: option.mode, label: option.sublabel, comingSoon: !!option.comingSoon });
+    }
+  });
+
+  const findHref = (role, mode) => {
+    const match = data.roleSwitcher.find(o => o.role === role && o.mode === mode);
+    return match ? match.href : '#';
+  };
+
+  const roleMenu = roles.map(r => `
+    <a href="${escapeHtml(findHref(r.role, pageMode))}" data-switch="role" class="${r.role === pageRole ? 'current' : ''}">${escapeHtml(r.label)}</a>
+  `).join('');
+
+  const modeMenu = modes.map(m => `
+    <a href="${escapeHtml(findHref(pageRole, m.mode))}" data-switch="mode" class="${m.mode === pageMode ? 'current' : ''} ${m.comingSoon ? 'is-soon' : ''}" ${m.comingSoon ? `title="${escapeHtml(m.label)} offering is still being built — early conversations welcome"` : ''}>
+      <span>${escapeHtml(m.label)}</span>${m.comingSoon ? '<span class="soon-tag">Soon</span>' : ''}
+    </a>
+  `).join('');
+
+  const currentRoleLabel = (roles.find(r => r.role === pageRole) || roles[0]).label;
+  const currentModeLabel = (modes.find(m => m.mode === pageMode) || modes[0]).label;
+
+  const wrapper = document.createElement('div');
+  wrapper.className = 'switcher-group';
+  wrapper.innerHTML = `
+    <details class="switcher-select" id="role-select">
+      <summary>${escapeHtml(currentRoleLabel)}</summary>
+      <div class="switcher-select-menu">${roleMenu}</div>
+    </details>
+    <details class="switcher-select" id="mode-select">
+      <summary>${escapeHtml(currentModeLabel)}</summary>
+      <div class="switcher-select-menu">${modeMenu}</div>
+    </details>
+  `;
+  actions.insertBefore(wrapper, actions.firstChild);
+
+  wrapper.querySelectorAll('[data-switch]').forEach(link => {
+    link.addEventListener('click', (event) => {
+      if (link.classList.contains('current')) {
+        event.preventDefault();
+        link.closest('details').removeAttribute('open');
+        return;
+      }
+      setSwitcherFlag();
+      trackEvent('header_switcher_selected', {
+        destination: link.getAttribute('href'),
+        via: link.dataset.switch,
+        page: pageType,
+        role: pageRole,
+        mode: pageMode,
+      });
     });
   });
 
   document.addEventListener('click', (event) => {
-    document.querySelectorAll('details.switcher-dropdown[open]').forEach(details => {
+    wrapper.querySelectorAll('details[open]').forEach(details => {
       if (!details.contains(event.target)) details.removeAttribute('open');
     });
   });
@@ -470,7 +538,7 @@ function renderHeaderSwitcher(data) {
       renderResume(data);
     } else {
       renderSite(data, pageRole, pageMode);
-      renderHeaderSwitcher(data);
+      renderSwitcher(data);
     }
     trackEvent('portfolio_page_view', { page: pageType, role: pageRole, mode: pageMode });
 
