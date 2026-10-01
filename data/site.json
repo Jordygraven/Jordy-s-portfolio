@@ -47,19 +47,14 @@
       }
     }
   },
-  "hub": {
-    "eyebrow": "JORDY GRAVEN",
-    "headline": "Product manager. AI specialist. Pick the lens that fits what you're looking for.",
-    "intro": "Originally from the Netherlands, based in Kuala Lumpur, Malaysia. I work across product management and hands-on AI development — choose a role and location below to see the version of the site built for that context.",
-    "switcher": [
-      { "role": "pm", "mode": "malaysia", "label": "Product Manager", "sublabel": "Malaysia-based", "href": "pm-malaysia.html" },
-      { "role": "pm", "mode": "remote", "label": "Product Manager", "sublabel": "Remote", "href": "pm-remote.html" },
-      { "role": "pm", "mode": "freelance", "label": "Product Manager", "sublabel": "Freelance", "href": "pm-freelance.html", "comingSoon": true },
-      { "role": "ai-specialist", "mode": "malaysia", "label": "AI Specialist", "sublabel": "Malaysia-based", "href": "ai-malaysia.html" },
-      { "role": "ai-specialist", "mode": "remote", "label": "AI Specialist", "sublabel": "Remote", "href": "ai-remote.html" },
-      { "role": "ai-specialist", "mode": "freelance", "label": "AI Specialist", "sublabel": "Freelance", "href": "ai-freelance.html", "comingSoon": true }
-    ]
-  },
+  "roleSwitcher": [
+    { "role": "pm", "mode": "malaysia", "label": "Product Manager", "sublabel": "Malaysia-based", "href": "pm-malaysia.html" },
+    { "role": "pm", "mode": "remote", "label": "Product Manager", "sublabel": "Remote", "href": "pm-remote.html" },
+    { "role": "pm", "mode": "freelance", "label": "Product Manager", "sublabel": "Freelance", "href": "pm-freelance.html", "comingSoon": true },
+    { "role": "ai-specialist", "mode": "malaysia", "label": "AI Specialist", "sublabel": "Malaysia-based", "href": "ai-malaysia.html" },
+    { "role": "ai-specialist", "mode": "remote", "label": "AI Specialist", "sublabel": "Remote", "href": "ai-remote.html" },
+    { "role": "ai-specialist", "mode": "freelance", "label": "AI Specialist", "sublabel": "Freelance", "href": "ai-freelance.html", "comingSoon": true }
+  ],
   "valueCards": [
     {
       "title": "Product strategy",
