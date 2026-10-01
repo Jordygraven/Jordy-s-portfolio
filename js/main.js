@@ -8,6 +8,27 @@ function mergeHero(hero, role, mode) {
   return Object.assign({}, hero.base, hero.byRole[role], hero.byMode[mode]);
 }
 
+const ROLE_KEY_MAP = { pm: 'pm', 'ai-specialist': 'ai' };
+
+function getVariantKey(role, mode) {
+  return `${ROLE_KEY_MAP[role] || role}-${mode}`;
+}
+
+function resolveCaseStudies(selections, role, mode, allCaseStudies) {
+  const variantKey = getVariantKey(role, mode);
+  const ids = (selections.byVariant && selections.byVariant[variantKey]) || selections.default || [];
+  const byId = new Map(allCaseStudies.map(item => [item.id, item]));
+  return ids.reduce((resolved, id) => {
+    const item = byId.get(id);
+    if (!item) {
+      console.warn(`Unknown case study id: ${id}`);
+      return resolved;
+    }
+    resolved.push(item);
+    return resolved;
+  }, []);
+}
+
 function trackEvent(eventName, properties = {}) {
   if (window.posthog && typeof window.posthog.capture === 'function') {
     window.posthog.capture(eventName, properties);
@@ -29,8 +50,20 @@ async function loadJson(url) {
   return response.json();
 }
 
+const STARR_LABELS = [
+  ['situation', 'Situation'],
+  ['task', 'Task'],
+  ['action', 'Action'],
+  ['result', 'Result'],
+  ['reflection', 'Reflection']
+];
+
 function createModal(caseItem) {
-  const details = caseItem.details || {};
+  const starr = caseItem.starr || {};
+  const sections = STARR_LABELS
+    .filter(([key]) => starr[key] && starr[key].trim())
+    .map(([key, label]) => `<div><h4>${escapeHtml(label)}</h4><p>${escapeHtml(starr[key])}</p></div>`)
+    .join('');
   return `
     <div class="modal-backdrop" id="case-modal">
       <div class="modal-card">
@@ -38,14 +71,10 @@ function createModal(caseItem) {
         <div class="modal-content">
           <p class="eyebrow">Case study</p>
           <h3>${escapeHtml(caseItem.title)}</h3>
-          <p class="small">${escapeHtml(details.context || '')}</p>
-          <div class="smart-grid">
-            <div><h4>Challenge</h4><p>${escapeHtml(details.challenge || '')}</p></div>
-            <div><h4>Approach</h4><p>${escapeHtml(details.approach || '')}</p></div>
-            <div><h4>Result</h4><p>${escapeHtml(details.result || '')}</p></div>
-          </div>
+          <p class="small">${escapeHtml(caseItem.context || '')}</p>
+          <div class="smart-grid">${sections}</div>
           <div class="metrics">
-            ${(details.metrics || []).map(metric => `<span>${escapeHtml(metric)}</span>`).join('')}
+            ${(caseItem.metrics || []).map(metric => `<span>${escapeHtml(metric)}</span>`).join('')}
           </div>
           <div class="ai-placeholder-row">
             ${(caseItem.aiApplications || []).map(app => `<div class="ai-placeholder">${escapeHtml(app)}</div>`).join('')}
@@ -60,6 +89,7 @@ function showModal(caseItem) {
   modalState = caseItem;
   trackEvent('case_study_opened', {
     case_title: caseItem.title,
+    case_id: caseItem.id,
     page: pageType
   });
   document.body.classList.add('modal-open');
@@ -245,11 +275,15 @@ function renderSite(data, role, mode) {
     </div>
   `).join('');
 
-  const cases = (data.caseStudies || []).map(item => {
-    if (item.comingSoon) {
+  const cases = (data.caseStudies || []).filter(item => {
+    if (item.status === 'published' || item.status === 'in-development') return true;
+    console.warn(`Unknown case study status "${item.status}" for id "${item.id}" — skipping`);
+    return false;
+  }).map(item => {
+    if (item.status === 'in-development') {
       return `
         <article class="case-item case-placeholder" data-clickable="false">
-          <span class="case-badge">Coming soon</span>
+          <span class="case-badge">In development</span>
           <h3>${escapeHtml(item.title)}</h3>
           <p>${escapeHtml(item.summary)}</p>
         </article>
@@ -257,7 +291,7 @@ function renderSite(data, role, mode) {
     }
 
     return `
-      <article class="case-item" data-clickable="true" data-case="${escapeHtml(item.title)}" tabindex="0" role="button" aria-label="Open case study: ${escapeHtml(item.title)}">
+      <article class="case-item" data-clickable="true" data-case-id="${escapeHtml(item.id)}" tabindex="0" role="button" aria-label="Open case study: ${escapeHtml(item.title)}">
         <h3>${escapeHtml(item.title)}</h3>
         <p>${escapeHtml(item.summary)}</p>
       </article>
@@ -364,13 +398,13 @@ function renderSite(data, role, mode) {
 
   document.querySelectorAll('.case-item[data-clickable="true"]').forEach(card => {
     card.addEventListener('click', () => {
-      const caseItem = (data.caseStudies || []).find(item => item.title === card.dataset.case);
+      const caseItem = (data.caseStudies || []).find(item => item.id === card.dataset.caseId);
       if (caseItem) showModal(caseItem);
     });
     card.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        const caseItem = (data.caseStudies || []).find(item => item.title === card.dataset.case);
+        const caseItem = (data.caseStudies || []).find(item => item.id === card.dataset.caseId);
         if (caseItem) showModal(caseItem);
       }
     });
@@ -521,10 +555,15 @@ function renderSwitcher(data) {
 
 (async function init() {
   try {
-    const data = await loadJson(pageType === 'resume' ? 'data/resume.json' : 'data/site.json');
     if (pageType === 'resume') {
+      const data = await loadJson('data/resume.json');
       renderResume(data);
     } else {
+      const [data, caseStudiesData] = await Promise.all([
+        loadJson('data/site.json'),
+        loadJson('data/case-studies.json')
+      ]);
+      data.caseStudies = resolveCaseStudies(data.caseStudySelections, pageRole, pageMode, caseStudiesData.caseStudies || []);
       renderSite(data, pageRole, pageMode);
       renderSwitcher(data);
     }

@@ -146,65 +146,17 @@
       }
     ]
   },
-  "caseStudies": [
-    {
-      "title": "Scaling AI-driven customer and sales agents",
-      "summary": "A practical use case that moved from prototype to controlled rollout in a regulated environment.",
-      "details": {
-        "context": "Coolblue Energie",
-        "challenge": "Launch a customer-service chatbot and recommendation agent without overstepping compliance boundaries or harming trust.",
-        "approach": "Used a structured discovery loop, prompt design, and a staged rollout plan to safely test in production while maintaining oversight.",
-        "result": "The solution reduced friction, improved response quality, and created a scalable operating model for future AI-assisted support.",
-        "metrics": ["<1% hallucination rate", "Lower cost per contact", "Reduced fraud exposure"]
-      },
-      "aiApplications": ["AI assistant workflow", "Recommendation agent"]
-    },
-    {
-      "title": "High-stakes omnichannel pivot and fraud mitigation",
-      "summary": "A fast-moving change program that kept the customer journey compliant under pressure.",
-      "details": {
-        "context": "Coolblue",
-        "challenge": "Re-architect the in-store contracting funnel under a hard regulatory deadline while protecting the business from incentive-based fraud.",
-        "approach": "Built a greylisting system and redesigned the journey so compliance and customer experience could advance together.",
-        "result": "The change protected 18 stores, preserved legal compliance, and improved attached margin without adding friction.",
-        "metrics": ["100% legal compliance", "18 stores protected", "Higher attached margin"]
-      },
-      "aiApplications": ["Fraud pattern detection", "Decision support assistant"]
-    },
-    {
-      "title": "Building a cross-sell orchestration platform",
-      "summary": "A product system that blended automation, human control, and measurable commercial impact.",
-      "details": {
-        "context": "Coolblue",
-        "challenge": "Create a centralized way to connect recommendation logic, manual overrides, and commercial workflows across multiple stakeholders.",
-        "approach": "Designed a platform that combined algorithmic enablement with human decision support so adoption could scale quickly.",
-        "result": "More than 100 stakeholders used the platform and recommendation effectiveness increased as the solution matured.",
-        "metrics": ["100+ active users", "Improved recommendation effectiveness", "Scalable operating model"]
-      },
-      "aiApplications": ["Recommendation engine", "Decision support"]
-    },
-    {
-      "title": "Coming soon",
-      "summary": "A fresh case study will be added here as soon as the next story is ready.",
-      "details": {},
-      "aiApplications": [],
-      "comingSoon": true
-    },
-    {
-      "title": "Coming soon",
-      "summary": "A deeper look into a recent launch or operating model will appear here soon.",
-      "details": {},
-      "aiApplications": [],
-      "comingSoon": true
-    },
-    {
-      "title": "Coming soon",
-      "summary": "I’m collecting the next example that shows the blend of design, automation, and delivery in practice.",
-      "details": {},
-      "aiApplications": [],
-      "comingSoon": true
+  "caseStudySelections": {
+    "default": ["ai-agents", "omnichannel-pivot", "cross-sell-platform", "finance-dashboard", "portfolio-site", "job-hunt-platform"],
+    "byVariant": {
+      "pm-malaysia": ["ai-agents", "omnichannel-pivot", "cross-sell-platform", "finance-dashboard", "portfolio-site", "job-hunt-platform"],
+      "pm-remote": ["ai-agents", "omnichannel-pivot", "cross-sell-platform", "finance-dashboard", "portfolio-site", "job-hunt-platform"],
+      "pm-freelance": ["ai-agents", "omnichannel-pivot", "cross-sell-platform", "finance-dashboard", "portfolio-site", "job-hunt-platform"],
+      "ai-malaysia": ["ai-agents", "omnichannel-pivot", "cross-sell-platform", "finance-dashboard", "portfolio-site", "job-hunt-platform"],
+      "ai-remote": ["ai-agents", "omnichannel-pivot", "cross-sell-platform", "finance-dashboard", "portfolio-site", "job-hunt-platform"],
+      "ai-freelance": ["ai-agents", "omnichannel-pivot", "cross-sell-platform", "finance-dashboard", "portfolio-site", "job-hunt-platform"]
     }
-  ],
+  },
   "about": {
     "title": "About me",
     "intro": "I’m curious, energetic, and happiest when I’m learning, moving, and building with good people. Outside of work I travel, train, explore food, and keep chasing new experiences.",

@@ -1,0 +1,106 @@
+{
+  "caseStudies": [
+    {
+      "id": "ai-agents",
+      "title": "Scaling AI-driven customer and sales agents",
+      "summary": "A practical use case that moved from prototype to controlled rollout in a regulated environment.",
+      "status": "published",
+      "tags": [],
+      "context": "Coolblue Energie",
+      "starr": {
+        "situation": "",
+        "task": "Launch a customer-service chatbot and recommendation agent without overstepping compliance boundaries or harming trust.",
+        "action": "Used a structured discovery loop, prompt design, and a staged rollout plan to safely test in production while maintaining oversight.",
+        "result": "The solution reduced friction, improved response quality, and created a scalable operating model for future AI-assisted support.",
+        "reflection": ""
+      },
+      "metrics": ["<1% hallucination rate", "Lower cost per contact", "Reduced fraud exposure"],
+      "aiApplications": ["AI assistant workflow", "Recommendation agent"]
+    },
+    {
+      "id": "omnichannel-pivot",
+      "title": "High-stakes omnichannel pivot and fraud mitigation",
+      "summary": "A fast-moving change program that kept the customer journey compliant under pressure.",
+      "status": "published",
+      "tags": [],
+      "context": "Coolblue",
+      "starr": {
+        "situation": "",
+        "task": "Re-architect the in-store contracting funnel under a hard regulatory deadline while protecting the business from incentive-based fraud.",
+        "action": "Built a greylisting system and redesigned the journey so compliance and customer experience could advance together.",
+        "result": "The change protected 18 stores, preserved legal compliance, and improved attached margin without adding friction.",
+        "reflection": ""
+      },
+      "metrics": ["100% legal compliance", "18 stores protected", "Higher attached margin"],
+      "aiApplications": ["Fraud pattern detection", "Decision support assistant"]
+    },
+    {
+      "id": "cross-sell-platform",
+      "title": "Building a cross-sell orchestration platform",
+      "summary": "A product system that blended automation, human control, and measurable commercial impact.",
+      "status": "published",
+      "tags": [],
+      "context": "Coolblue",
+      "starr": {
+        "situation": "",
+        "task": "Create a centralized way to connect recommendation logic, manual overrides, and commercial workflows across multiple stakeholders.",
+        "action": "Designed a platform that combined algorithmic enablement with human decision support so adoption could scale quickly.",
+        "result": "More than 100 stakeholders used the platform and recommendation effectiveness increased as the solution matured.",
+        "reflection": ""
+      },
+      "metrics": ["100+ active users", "Improved recommendation effectiveness", "Scalable operating model"],
+      "aiApplications": ["Recommendation engine", "Decision support"]
+    },
+    {
+      "id": "finance-dashboard",
+      "title": "Financial dashboard",
+      "summary": "A personal finance dashboard that connects my bank accounts through open banking to compare budget against real spending, built solo with Claude Code.",
+      "status": "in-development",
+      "tags": [],
+      "context": "",
+      "starr": {
+        "situation": "",
+        "task": "",
+        "action": "",
+        "result": "",
+        "reflection": ""
+      },
+      "metrics": [],
+      "aiApplications": []
+    },
+    {
+      "id": "portfolio-site",
+      "title": "This portfolio site",
+      "summary": "One shared codebase serving six targeted versions of this site, deployed on Vercel with PostHog analytics and built through Claude Code.",
+      "status": "in-development",
+      "tags": [],
+      "context": "",
+      "starr": {
+        "situation": "",
+        "task": "",
+        "action": "",
+        "result": "",
+        "reflection": ""
+      },
+      "metrics": [],
+      "aiApplications": []
+    },
+    {
+      "id": "job-hunt-platform",
+      "title": "Job hunting platform",
+      "summary": "A job search dashboard I'm designing and building with Claude Code sub-agents to research roles and track every application.",
+      "status": "in-development",
+      "tags": [],
+      "context": "",
+      "starr": {
+        "situation": "",
+        "task": "",
+        "action": "",
+        "result": "",
+        "reflection": ""
+      },
+      "metrics": [],
+      "aiApplications": []
+    }
+  ]
+}
