@@ -436,37 +436,29 @@ function renderResume(data) {
   `;
 }
 
-function renderHub(data) {
-  const hub = data.hub;
+function renderHeaderSwitcher(data) {
+  const menu = document.getElementById('role-switcher-menu');
+  if (!menu) return;
 
-  const switcher = hub.switcher.map(option => `
-    <a class="switcher-option" href="${escapeHtml(option.href)}" data-switcher-option="${escapeHtml(option.href)}">
-      ${option.comingSoon ? '<span class="case-badge switcher-badge">Coming soon</span>' : ''}
-      <strong>${escapeHtml(option.label)}</strong>
-      <span>${escapeHtml(option.sublabel)}</span>
-    </a>
-  `).join('');
+  menu.innerHTML = data.roleSwitcher.map(option => {
+    const isCurrent = option.role === pageRole && option.mode === pageMode;
+    return `
+      <a href="${escapeHtml(option.href)}" data-switcher-option="${escapeHtml(option.href)}" class="${isCurrent ? 'current' : ''}">
+        <span>${escapeHtml(option.label)} · ${escapeHtml(option.sublabel)}</span>
+        ${option.comingSoon ? '<span class="switcher-menu-badge">Coming soon</span>' : ''}
+      </a>
+    `;
+  }).join('');
 
-  contentRoot.innerHTML = `
-    <section class="hero hub-hero" id="work">
-      <div class="hero-copy">
-        <span class="eyebrow">${escapeHtml(hub.eyebrow)}</span>
-        <h1>${escapeHtml(hub.headline)}</h1>
-        <p>${escapeHtml(hub.intro)}</p>
-      </div>
-    </section>
-
-    <section class="section" id="switcher">
-      <div class="section-header">
-        <h2>Choose where to start</h2>
-      </div>
-      <div class="switcher-grid">${switcher}</div>
-    </section>
-  `;
-
-  document.querySelectorAll('[data-switcher-option]').forEach(link => {
+  menu.querySelectorAll('[data-switcher-option]').forEach(link => {
     link.addEventListener('click', () => {
-      trackEvent('hub_option_selected', { destination: link.dataset.switcherOption });
+      trackEvent('header_switcher_selected', { destination: link.dataset.switcherOption, page: pageType, role: pageRole, mode: pageMode });
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    document.querySelectorAll('details.switcher-dropdown[open]').forEach(details => {
+      if (!details.contains(event.target)) details.removeAttribute('open');
     });
   });
 }
@@ -476,10 +468,9 @@ function renderHub(data) {
     const data = await loadJson(pageType === 'resume' ? 'data/resume.json' : 'data/site.json');
     if (pageType === 'resume') {
       renderResume(data);
-    } else if (pageType === 'hub') {
-      renderHub(data);
     } else {
       renderSite(data, pageRole, pageMode);
+      renderHeaderSwitcher(data);
     }
     trackEvent('portfolio_page_view', { page: pageType, role: pageRole, mode: pageMode });
 
