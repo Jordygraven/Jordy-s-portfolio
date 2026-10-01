@@ -1,6 +1,12 @@
 const pageType = document.body.dataset.page || 'index';
+const pageRole = document.body.dataset.role || null;
+const pageMode = document.body.dataset.mode || null;
 const contentRoot = document.getElementById('content');
 let modalState = null;
+
+function mergeHero(hero, role, mode) {
+  return Object.assign({}, hero.base, hero.byRole[role], hero.byMode[mode]);
+}
 
 function trackEvent(eventName, properties = {}) {
   if (window.posthog && typeof window.posthog.capture === 'function') {
@@ -191,8 +197,8 @@ function renderLightbox(items, index) {
   });
 }
 
-function renderIndex(data) {
-  const hero = data.hero;
+function renderSite(data, role, mode) {
+  const hero = mergeHero(data.hero, role, mode);
   const valueCards = data.valueCards.map(card => `
     <article class="card">
       <div class="card-icon">✦</div>
@@ -263,23 +269,29 @@ function renderIndex(data) {
   `).join('');
 
   contentRoot.innerHTML = `
+    ${mode === 'freelance' ? `
+    <div class="wip-banner" role="status">
+      <span>${escapeHtml(hero.wipBannerText)}</span>
+    </div>
+    ` : ''}
     <section class="hero" id="work">
       <div class="hero-copy">
         <span class="eyebrow">${escapeHtml(hero.eyebrow)}</span>
         <h1>${escapeHtml(hero.headline)}</h1>
-        <p>${escapeHtml(hero.intro)}</p>
-        <p class="hero-subline">${escapeHtml(hero.subline)}</p>
+        <p>${escapeHtml(hero.subhead)}</p>
+        <p>${escapeHtml(hero.location)}</p>
+        <p class="hero-subline">${escapeHtml(hero.availabilityLine)}</p>
         <div class="hero-actions">
-          <a class="button" href="${escapeHtml(hero.ctaPrimary.href)}" ${hero.ctaPrimary.download ? 'download' : ''}>${escapeHtml(hero.ctaPrimary.label)}</a>
-          <a class="button secondary" href="${escapeHtml(hero.ctaSecondary.href)}" target="_blank" rel="noreferrer">
-            ${hero.ctaSecondary.icon ? `<img src="${escapeHtml(hero.ctaSecondary.icon)}" alt="" />` : ''}
-            ${escapeHtml(hero.ctaSecondary.label)}
+          <a class="button" href="${escapeHtml(hero.cta.cv.href)}" ${hero.cta.cv.download ? 'download' : ''}>${escapeHtml(hero.cta.cv.label)}</a>
+          <a class="button secondary" href="${escapeHtml(hero.cta.whatsapp.href)}" target="_blank" rel="noreferrer">
+            ${hero.cta.whatsapp.icon ? `<img src="${escapeHtml(hero.cta.whatsapp.icon)}" alt="" />` : ''}
+            ${escapeHtml(hero.cta.whatsapp.label)}
           </a>
-          <a class="button secondary" href="${escapeHtml(hero.ctaTertiary.href)}" target="_blank" rel="noreferrer">${escapeHtml(hero.ctaTertiary.label)}</a>
+          <a class="button secondary" href="${escapeHtml(hero.cta.linkedin.href)}" target="_blank" rel="noreferrer">${escapeHtml(hero.cta.linkedin.label)}</a>
         </div>
       </div>
       <div class="hero-panel">
-        <img src="Photos/Profile photo/B3192E5B-B271-49F2-8239-9DFBD9219757.PNG" alt="Portrait of Jordy Graven">
+        <img src="${escapeHtml(hero.photo)}" alt="Portrait of Jordy Graven">
         <div class="hero-meta">
           ${hero.highlights.map(stat => `<div><strong>${escapeHtml(stat.title)}</strong><span>${escapeHtml(stat.detail)}</span></div>`).join('')}
         </div>
@@ -424,15 +436,52 @@ function renderResume(data) {
   `;
 }
 
+function renderHub(data) {
+  const hub = data.hub;
+
+  const switcher = hub.switcher.map(option => `
+    <a class="switcher-option" href="${escapeHtml(option.href)}" data-switcher-option="${escapeHtml(option.href)}">
+      ${option.comingSoon ? '<span class="case-badge switcher-badge">Coming soon</span>' : ''}
+      <strong>${escapeHtml(option.label)}</strong>
+      <span>${escapeHtml(option.sublabel)}</span>
+    </a>
+  `).join('');
+
+  contentRoot.innerHTML = `
+    <section class="hero hub-hero" id="work">
+      <div class="hero-copy">
+        <span class="eyebrow">${escapeHtml(hub.eyebrow)}</span>
+        <h1>${escapeHtml(hub.headline)}</h1>
+        <p>${escapeHtml(hub.intro)}</p>
+      </div>
+    </section>
+
+    <section class="section" id="switcher">
+      <div class="section-header">
+        <h2>Choose where to start</h2>
+      </div>
+      <div class="switcher-grid">${switcher}</div>
+    </section>
+  `;
+
+  document.querySelectorAll('[data-switcher-option]').forEach(link => {
+    link.addEventListener('click', () => {
+      trackEvent('hub_option_selected', { destination: link.dataset.switcherOption });
+    });
+  });
+}
+
 (async function init() {
   try {
     const data = await loadJson(pageType === 'resume' ? 'data/resume.json' : 'data/site.json');
     if (pageType === 'resume') {
       renderResume(data);
+    } else if (pageType === 'hub') {
+      renderHub(data);
     } else {
-      renderIndex(data);
+      renderSite(data, pageRole, pageMode);
     }
-    trackEvent('portfolio_page_view', { page: pageType });
+    trackEvent('portfolio_page_view', { page: pageType, role: pageRole, mode: pageMode });
 
     document.querySelectorAll('a[href*="Jordy_Graven_CV.pdf"]').forEach(link => {
       link.addEventListener('click', () => {

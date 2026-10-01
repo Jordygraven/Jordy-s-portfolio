@@ -9,17 +9,55 @@
     { "label": "Contact", "href": "#contact" }
   ],
   "hero": {
-    "eyebrow": "AI-driven product manager",
-    "headline": "I build product experiences that feel simple, useful, and intelligently automated.",
-    "intro": "I’m a product leader with 10+ years of professional experience across regulated industries and product development. I work at the intersection of strategy, automation, and measurable outcomes, and I’m originally from the Netherlands, relocating to Kuala Lumpur in September 2026.",
-    "subline": "Spouse visa (LTSVP) expected in February 2027, directly available via Employment Pass sponsorship.",
-    "ctaPrimary": { "label": "Open CV", "href": "Resume/Jordy_Graven_CV.pdf", "download": true },
-    "ctaSecondary": { "label": "WhatsApp", "href": "https://wa.me/31614831786", "icon": "icons/whatsapp.svg" },
-    "ctaTertiary": { "label": "LinkedIn", "href": "https://www.linkedin.com/in/jordy-graven-52429265/" },
-    "highlights": [
-      { "title": "10+ years", "detail": "professional experience" },
-      { "title": "5+ years", "detail": "in product development" },
-      { "title": "Feb 2027", "detail": "visa timeline" }
+    "base": {
+      "location": "Originally from the Netherlands, based in Kuala Lumpur, Malaysia.",
+      "photo": "Photos/Profile photo/B3192E5B-B271-49F2-8239-9DFBD9219757.PNG",
+      "highlights": [
+        { "title": "10+ years", "detail": "professional experience" },
+        { "title": "5+ years", "detail": "in product development" }
+      ],
+      "cta": {
+        "cv": { "label": "Open CV", "href": "Resume/Jordy_Graven_CV.pdf", "download": true },
+        "whatsapp": { "label": "WhatsApp", "href": "https://wa.me/31614831786", "icon": "icons/whatsapp.svg" },
+        "linkedin": { "label": "LinkedIn", "href": "https://www.linkedin.com/in/jordy-graven-52429265/" }
+      }
+    },
+    "byRole": {
+      "pm": {
+        "eyebrow": "AI-DRIVEN PRODUCT MANAGER",
+        "headline": "I build product experiences that feel simple, useful, and intelligently automated.",
+        "subhead": "I'm a product leader with 10+ years of professional experience across regulated industries and product development. I work at the intersection of strategy, automation, and measurable outcomes."
+      },
+      "ai-specialist": {
+        "eyebrow": "HANDS-ON AI / GENERATIVE AI SPECIALIST",
+        "headline": "I design and ship AI products end to end, from idea to production.",
+        "subhead": "I build with Claude Code, agentic workflows, and modern AI tooling, turning ideas into working, deployed products rather than just specs. 10+ years in product, now building hands-on."
+      }
+    },
+    "byMode": {
+      "malaysia": {
+        "availabilityLine": "Spouse visa (LTSVP) expected in February 2027, directly available via Employment Pass sponsorship."
+      },
+      "remote": {
+        "availabilityLine": "Based in Kuala Lumpur. Directly available for remote roles across the EU and UK, no sponsorship required."
+      },
+      "freelance": {
+        "wipBannerText": "🚧 Freelance offering is still in progress. Full case studies and engagement details are launching soon. Reach out now to discuss early availability.",
+        "availabilityLine": "Open to early freelance conversations now."
+      }
+    }
+  },
+  "hub": {
+    "eyebrow": "JORDY GRAVEN",
+    "headline": "Product manager. AI specialist. Pick the lens that fits what you're looking for.",
+    "intro": "Originally from the Netherlands, based in Kuala Lumpur, Malaysia. I work across product management and hands-on AI development — choose a role and location below to see the version of the site built for that context.",
+    "switcher": [
+      { "role": "pm", "mode": "malaysia", "label": "Product Manager", "sublabel": "Malaysia-based", "href": "pm-malaysia.html" },
+      { "role": "pm", "mode": "remote", "label": "Product Manager", "sublabel": "Remote", "href": "pm-remote.html" },
+      { "role": "pm", "mode": "freelance", "label": "Product Manager", "sublabel": "Freelance", "href": "pm-freelance.html", "comingSoon": true },
+      { "role": "ai-specialist", "mode": "malaysia", "label": "AI Specialist", "sublabel": "Malaysia-based", "href": "ai-malaysia.html" },
+      { "role": "ai-specialist", "mode": "remote", "label": "AI Specialist", "sublabel": "Remote", "href": "ai-remote.html" },
+      { "role": "ai-specialist", "mode": "freelance", "label": "AI Specialist", "sublabel": "Freelance", "href": "ai-freelance.html", "comingSoon": true }
     ]
   },
   "valueCards": [

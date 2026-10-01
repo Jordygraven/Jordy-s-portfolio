@@ -221,6 +221,61 @@ img {
   flex-wrap: wrap;
 }
 
+.hub-hero {
+  grid-template-columns: 1fr;
+}
+
+.wip-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px;
+  padding: 14px 20px;
+  border-radius: 16px;
+  background: rgba(240, 138, 36, 0.14);
+  border: 1px solid rgba(240, 138, 36, 0.35);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.switcher-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.switcher-option {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.switcher-option:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(20, 33, 61, 0.1);
+}
+
+.switcher-option strong {
+  font-size: 1.05rem;
+}
+
+.switcher-option span {
+  color: var(--muted);
+}
+
+.switcher-badge {
+  align-self: flex-start;
+}
+
 .hero-panel,
 .section,
 .card,
@@ -735,7 +790,8 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .grid-3 {
+  .grid-3,
+  .switcher-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -839,10 +895,6 @@ img {
     padding: 8px;
   }
 
-  .hero-meta div:last-child {
-    display: none;
-  }
-
   .section-header h2 {
     white-space: nowrap;
   }
@@ -850,7 +902,8 @@ img {
   .grid-2,
   .grid-3,
   .gallery,
-  .ai-placeholder-row {
+  .ai-placeholder-row,
+  .switcher-grid {
     grid-template-columns: 1fr;
   }
 }
