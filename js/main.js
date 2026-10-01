@@ -436,28 +436,74 @@ function renderResume(data) {
   `;
 }
 
-function renderHeaderSwitcher(data) {
-  const menu = document.getElementById('role-switcher-menu');
-  if (!menu) return;
+const SWITCHER_SESSION_KEY = 'switcherVisitedFromHub';
 
-  menu.innerHTML = data.roleSwitcher.map(option => {
+function isRootPage() {
+  const path = window.location.pathname;
+  return path === '/' || path === '' || /\/index\.html$/.test(path);
+}
+
+function switcherFlagPresent() {
+  try {
+    return sessionStorage.getItem(SWITCHER_SESSION_KEY) === '1';
+  } catch (e) {
+    return false;
+  }
+}
+
+function setSwitcherFlag() {
+  try {
+    sessionStorage.setItem(SWITCHER_SESSION_KEY, '1');
+  } catch (e) {
+    // sessionStorage unavailable (e.g. private browsing); navigation still proceeds.
+  }
+}
+
+function renderSwitcher(data) {
+  const actions = document.querySelector('.header-actions');
+  if (!actions || !(isRootPage() || switcherFlagPresent())) return;
+
+  const current = data.roleSwitcher.find(o => o.role === pageRole && o.mode === pageMode) || data.roleSwitcher[0];
+  const triggerLabel = `${current.shortLabel} · ${current.sublabel}`;
+
+  const rows = data.roleSwitcher.map(option => {
     const isCurrent = option.role === pageRole && option.mode === pageMode;
     return `
-      <a href="${escapeHtml(option.href)}" data-switcher-option="${escapeHtml(option.href)}" class="${isCurrent ? 'current' : ''}">
-        <span>${escapeHtml(option.label)} · ${escapeHtml(option.sublabel)}</span>
-        ${option.comingSoon ? '<span class="switcher-menu-badge">Coming soon</span>' : ''}
+      <a href="${escapeHtml(option.href)}" data-switcher-option="${escapeHtml(option.href)}" class="${isCurrent ? 'current' : ''} ${option.comingSoon ? 'is-soon' : ''}" ${option.comingSoon ? `title="${escapeHtml(option.sublabel)} offering is still being built — early conversations welcome"` : ''}>
+        <span>${escapeHtml(option.shortLabel)} · ${escapeHtml(option.sublabel)}</span>${option.comingSoon ? '<span class="soon-tag">Soon</span>' : ''}
       </a>
     `;
   }).join('');
 
-  menu.querySelectorAll('[data-switcher-option]').forEach(link => {
-    link.addEventListener('click', () => {
-      trackEvent('header_switcher_selected', { destination: link.dataset.switcherOption, page: pageType, role: pageRole, mode: pageMode });
+  const wrapper = document.createElement('div');
+  wrapper.className = 'switcher-group';
+  wrapper.innerHTML = `
+    <details class="switcher-select" id="role-mode-select">
+      <summary>${escapeHtml(triggerLabel)}</summary>
+      <div class="switcher-select-menu">${rows}</div>
+    </details>
+  `;
+  actions.insertBefore(wrapper, actions.firstChild);
+
+  wrapper.querySelectorAll('[data-switcher-option]').forEach(link => {
+    link.addEventListener('click', (event) => {
+      if (link.classList.contains('current')) {
+        event.preventDefault();
+        link.closest('details').removeAttribute('open');
+        return;
+      }
+      setSwitcherFlag();
+      trackEvent('header_switcher_selected', {
+        destination: link.dataset.switcherOption,
+        page: pageType,
+        role: pageRole,
+        mode: pageMode,
+      });
     });
   });
 
   document.addEventListener('click', (event) => {
-    document.querySelectorAll('details.switcher-dropdown[open]').forEach(details => {
+    wrapper.querySelectorAll('details[open]').forEach(details => {
       if (!details.contains(event.target)) details.removeAttribute('open');
     });
   });
@@ -470,7 +516,7 @@ function renderHeaderSwitcher(data) {
       renderResume(data);
     } else {
       renderSite(data, pageRole, pageMode);
-      renderHeaderSwitcher(data);
+      renderSwitcher(data);
     }
     trackEvent('portfolio_page_view', { page: pageType, role: pageRole, mode: pageMode });
 

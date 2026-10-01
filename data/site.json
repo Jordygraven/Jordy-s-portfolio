@@ -48,12 +48,12 @@
     }
   },
   "roleSwitcher": [
-    { "role": "pm", "mode": "malaysia", "label": "Product Manager", "sublabel": "Malaysia-based", "href": "pm-malaysia.html" },
-    { "role": "pm", "mode": "remote", "label": "Product Manager", "sublabel": "Remote", "href": "pm-remote.html" },
-    { "role": "pm", "mode": "freelance", "label": "Product Manager", "sublabel": "Freelance", "href": "pm-freelance.html", "comingSoon": true },
-    { "role": "ai-specialist", "mode": "malaysia", "label": "AI Specialist", "sublabel": "Malaysia-based", "href": "ai-malaysia.html" },
-    { "role": "ai-specialist", "mode": "remote", "label": "AI Specialist", "sublabel": "Remote", "href": "ai-remote.html" },
-    { "role": "ai-specialist", "mode": "freelance", "label": "AI Specialist", "sublabel": "Freelance", "href": "ai-freelance.html", "comingSoon": true }
+    { "role": "pm", "mode": "malaysia", "label": "Product Manager", "shortLabel": "PM", "sublabel": "Malaysia", "href": "pm-malaysia.html" },
+    { "role": "pm", "mode": "remote", "label": "Product Manager", "shortLabel": "PM", "sublabel": "Remote", "href": "pm-remote.html" },
+    { "role": "pm", "mode": "freelance", "label": "Product Manager", "shortLabel": "PM", "sublabel": "Freelance", "href": "pm-freelance.html", "comingSoon": true },
+    { "role": "ai-specialist", "mode": "malaysia", "label": "AI Specialist", "shortLabel": "AI Specialist", "sublabel": "Malaysia", "href": "ai-malaysia.html" },
+    { "role": "ai-specialist", "mode": "remote", "label": "AI Specialist", "shortLabel": "AI Specialist", "sublabel": "Remote", "href": "ai-remote.html" },
+    { "role": "ai-specialist", "mode": "freelance", "label": "AI Specialist", "shortLabel": "AI Specialist", "sublabel": "Freelance", "href": "ai-freelance.html", "comingSoon": true }
   ],
   "valueCards": [
     {
