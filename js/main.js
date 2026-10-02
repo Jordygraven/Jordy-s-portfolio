@@ -62,7 +62,7 @@ function createModal(caseItem) {
   const starr = caseItem.starr || {};
   const sections = STARR_LABELS
     .filter(([key]) => starr[key] && starr[key].trim())
-    .map(([key, label]) => `<div><h4>${escapeHtml(label)}</h4><p>${escapeHtml(starr[key])}</p></div>`)
+    .map(([key, label]) => `<div class="starr-row"><h4>${escapeHtml(label)}</h4><p>${escapeHtml(starr[key])}</p></div>`)
     .join('');
   return `
     <div class="modal-backdrop" id="case-modal">
@@ -72,7 +72,7 @@ function createModal(caseItem) {
           <p class="eyebrow">Case study</p>
           <h3>${escapeHtml(caseItem.title)}</h3>
           <p class="small">${escapeHtml(caseItem.context || '')}</p>
-          <div class="smart-grid">${sections}</div>
+          <div class="starr-list">${sections}</div>
           <div class="metrics">
             ${(caseItem.metrics || []).map(metric => `<span>${escapeHtml(metric)}</span>`).join('')}
           </div>

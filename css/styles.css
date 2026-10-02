@@ -808,17 +808,25 @@ img {
   font-weight: 600;
 }
 
-.smart-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.starr-list {
+  display: flex;
+  flex-direction: column;
   gap: 12px;
   margin-top: 14px;
 }
 
-.smart-grid > div {
+.starr-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 4px 16px;
   padding: 12px;
   border-radius: 16px;
   background: #f7f7f1;
+}
+
+.starr-row h4,
+.starr-row p {
+  margin: 0;
 }
 
 .ai-placeholder-row {
@@ -844,7 +852,6 @@ img {
   .hero,
   .about-layout,
   .resume-grid,
-  .smart-grid,
   .contact-list,
   .case-list {
     grid-template-columns: 1fr;
@@ -856,6 +863,10 @@ img {
 }
 
 @media (max-width: 640px) {
+  .starr-row {
+    grid-template-columns: 1fr;
+  }
+
   .page-shell {
     padding: 12px 14px 60px;
   }
