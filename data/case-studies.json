@@ -8,11 +8,11 @@
       "tags": [],
       "context": "Coolblue Energie",
       "starr": {
-        "situation": "[PLACEHOLDER situation text for layout review, two to three sentences long so wrapping is visible. This is not real case study content and must not ship.]",
+        "situation": "",
         "task": "Launch a customer-service chatbot and recommendation agent without overstepping compliance boundaries or harming trust.",
         "action": "Used a structured discovery loop, prompt design, and a staged rollout plan to safely test in production while maintaining oversight.",
         "result": "The solution reduced friction, improved response quality, and created a scalable operating model for future AI-assisted support.",
-        "reflection": "[PLACEHOLDER reflection text for layout review, two to three sentences long so wrapping is visible. This is not real case study content and must not ship.]"
+        "reflection": ""
       },
       "metrics": ["<1% hallucination rate", "Lower cost per contact", "Reduced fraud exposure"],
       "aiApplications": ["AI assistant workflow", "Recommendation agent"]
