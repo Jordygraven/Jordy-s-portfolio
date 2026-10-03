@@ -529,17 +529,30 @@ img {
 
 .case-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
 }
 
 .case-item {
-  padding: 18px;
+  padding: 16px;
   background: rgba(255,255,255,0.7);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.case-tag {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(31, 143, 139, 0.12);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .case-item[data-clickable="true"] {
@@ -852,9 +865,12 @@ img {
   .hero,
   .about-layout,
   .resume-grid,
-  .contact-list,
-  .case-list {
+  .contact-list {
     grid-template-columns: 1fr;
+  }
+
+  .case-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .grid-3 {
@@ -972,7 +988,8 @@ img {
   .grid-2,
   .grid-3,
   .gallery,
-  .ai-placeholder-row {
+  .ai-placeholder-row,
+  .case-list {
     grid-template-columns: 1fr;
   }
 

@@ -64,6 +64,8 @@ function createModal(caseItem) {
     .filter(([key]) => starr[key] && starr[key].trim())
     .map(([key, label]) => `<div class="starr-row"><h4>${escapeHtml(label)}</h4><p>${escapeHtml(starr[key])}</p></div>`)
     .join('');
+  const metrics = caseItem.metrics || [];
+  const aiApplications = caseItem.aiApplications || [];
   return `
     <div class="modal-backdrop" id="case-modal">
       <div class="modal-card">
@@ -71,14 +73,10 @@ function createModal(caseItem) {
         <div class="modal-content">
           <p class="eyebrow">Case study</p>
           <h3>${escapeHtml(caseItem.title)}</h3>
-          <p class="small">${escapeHtml(caseItem.context || '')}</p>
+          <p class="small">${escapeHtml(caseItem.experience || '')}</p>
           <div class="starr-list">${sections}</div>
-          <div class="metrics">
-            ${(caseItem.metrics || []).map(metric => `<span>${escapeHtml(metric)}</span>`).join('')}
-          </div>
-          <div class="ai-placeholder-row">
-            ${(caseItem.aiApplications || []).map(app => `<div class="ai-placeholder">${escapeHtml(app)}</div>`).join('')}
-          </div>
+          ${metrics.length ? `<div class="metrics">${metrics.map(metric => `<span>${escapeHtml(metric)}</span>`).join('')}</div>` : ''}
+          ${aiApplications.length ? `<div class="ai-placeholder-row">${aiApplications.map(app => `<div class="ai-placeholder">${escapeHtml(app)}</div>`).join('')}</div>` : ''}
         </div>
       </div>
     </div>
@@ -292,6 +290,7 @@ function renderSite(data, role, mode) {
 
     return `
       <article class="case-item" data-clickable="true" data-case-id="${escapeHtml(item.id)}" tabindex="0" role="button" aria-label="Open case study: ${escapeHtml(item.title)}">
+        <span class="case-tag">${escapeHtml(item.experience || '')}</span>
         <h3>${escapeHtml(item.title)}</h3>
         <p>${escapeHtml(item.summary)}</p>
       </article>

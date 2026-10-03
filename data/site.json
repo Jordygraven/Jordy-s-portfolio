@@ -147,14 +147,14 @@
     ]
   },
   "caseStudySelections": {
-    "default": ["ai-agents", "omnichannel-pivot", "cross-sell-platform", "finance-dashboard", "portfolio-site", "job-hunt-platform"],
+    "default": ["garmin-health-coach", "finance-dashboard", "job-hunt-platform", "ai-sales-agent", "self-service-agent", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "heat-pump-mid-funnel", "funnel-health", "data-product-vision", "monte-carlo-rollout", "margin-aware-cross-sell", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
     "byVariant": {
-      "pm-malaysia": ["ai-agents", "omnichannel-pivot", "cross-sell-platform", "finance-dashboard", "portfolio-site", "job-hunt-platform"],
-      "pm-remote": ["ai-agents", "omnichannel-pivot", "cross-sell-platform", "finance-dashboard", "portfolio-site", "job-hunt-platform"],
-      "pm-freelance": ["ai-agents", "omnichannel-pivot", "cross-sell-platform", "finance-dashboard", "portfolio-site", "job-hunt-platform"],
-      "ai-malaysia": ["ai-agents", "omnichannel-pivot", "cross-sell-platform", "finance-dashboard", "portfolio-site", "job-hunt-platform"],
-      "ai-remote": ["ai-agents", "omnichannel-pivot", "cross-sell-platform", "finance-dashboard", "portfolio-site", "job-hunt-platform"],
-      "ai-freelance": ["ai-agents", "omnichannel-pivot", "cross-sell-platform", "finance-dashboard", "portfolio-site", "job-hunt-platform"]
+      "pm-malaysia": ["garmin-health-coach", "finance-dashboard", "job-hunt-platform", "ai-sales-agent", "self-service-agent", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "heat-pump-mid-funnel", "funnel-health", "data-product-vision", "monte-carlo-rollout", "margin-aware-cross-sell", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
+      "pm-remote": ["garmin-health-coach", "finance-dashboard", "job-hunt-platform", "ai-sales-agent", "self-service-agent", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "heat-pump-mid-funnel", "funnel-health", "data-product-vision", "monte-carlo-rollout", "margin-aware-cross-sell", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
+      "pm-freelance": ["garmin-health-coach", "finance-dashboard", "job-hunt-platform", "ai-sales-agent", "self-service-agent", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "heat-pump-mid-funnel", "funnel-health", "data-product-vision", "monte-carlo-rollout", "margin-aware-cross-sell", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
+      "ai-malaysia": ["garmin-health-coach", "finance-dashboard", "job-hunt-platform", "ai-sales-agent", "self-service-agent", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "heat-pump-mid-funnel", "funnel-health", "data-product-vision", "monte-carlo-rollout", "margin-aware-cross-sell", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
+      "ai-remote": ["garmin-health-coach", "finance-dashboard", "job-hunt-platform", "ai-sales-agent", "self-service-agent", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "heat-pump-mid-funnel", "funnel-health", "data-product-vision", "monte-carlo-rollout", "margin-aware-cross-sell", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
+      "ai-freelance": ["garmin-health-coach", "finance-dashboard", "job-hunt-platform", "ai-sales-agent", "self-service-agent", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "heat-pump-mid-funnel", "funnel-health", "data-product-vision", "monte-carlo-rollout", "margin-aware-cross-sell", "cross-sell-platform", "multi-market-localization", "ambassador-model"]
     }
   },
   "about": {
