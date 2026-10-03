@@ -548,11 +548,26 @@ img {
   padding: 4px 10px;
   border-radius: 999px;
   background: rgba(31, 143, 139, 0.12);
-  color: var(--accent);
+  color: #146863;
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+}
+
+.case-tag--independent {
+  background: rgba(240, 138, 36, 0.16);
+  color: #92400e;
+}
+
+.case-tag--data-po {
+  background: rgba(124, 58, 237, 0.14);
+  color: #5b21b6;
+}
+
+.case-tag--po {
+  background: rgba(71, 85, 105, 0.12);
+  color: #334155;
 }
 
 .case-item[data-clickable="true"] {

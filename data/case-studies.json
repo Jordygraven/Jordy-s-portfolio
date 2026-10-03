@@ -57,7 +57,7 @@
       "summary": "How a GenAI chatbot lifted conversion by 6%.",
       "status": "published",
       "tags": [],
-      "experience": "Coolblue Energie Product Manager",
+      "experience": "Coolblue Energie PM",
       "starr": {
         "situation": "Many customers dropped off on the page showing our energy contracts. A contract is far harder to choose than an iPhone, so we assumed they had questions like \"Which contract suits me best?\"",
         "task": "As Product Manager, I had to test whether an AI sales chatbot could answer them in the funnel, although customers might distrust AI.",
@@ -74,7 +74,7 @@
       "summary": "We let a Q&A agent handle requests too, cutting term amount tickets by 30%.",
       "status": "published",
       "tags": [],
-      "experience": "Coolblue Energie Product Manager",
+      "experience": "Coolblue Energie PM",
       "starr": {
         "situation": "Rens, our n8n-built self-service bot, had already cut cost per contact by 13%. But it only answered simple questions, and its owner was stuck waiting for other teams' data.",
         "task": "I pulled Rens into my team's portfolio to make it act, not just answer.",
@@ -91,7 +91,7 @@
       "summary": "A new law forced a pivot in 18 stores, then stores outsold online.",
       "status": "published",
       "tags": [],
-      "experience": "Coolblue Energie Product Manager",
+      "experience": "Coolblue Energie PM",
       "starr": {
         "situation": "From 2026, new rules required the welcome benefit for energy contracts in our 18 stores, a Coolblue discount, to become real money customers could spend anywhere.",
         "task": "I had to make the benefit compliant without hurting store sales or forcing a big tech rebuild.",
@@ -108,7 +108,7 @@
       "summary": "Greylisting logic cut potential fraud cases by 80%.",
       "status": "published",
       "tags": [],
-      "experience": "Coolblue Energie Product Manager",
+      "experience": "Coolblue Energie PM",
       "starr": {
         "situation": "After our January 2026 store pivot, incentive fraud dropped but did not stop. People signed up in several stores under new names, emails and addresses, spent the discount of up to €300 in store and cancelled.",
         "task": "The store sales manager spotted the problem. I owned the technical fix.",
@@ -125,7 +125,7 @@
       "summary": "A vibe-coded MVP helped stores pass €100,000 contract value monthly.",
       "status": "published",
       "tags": [],
-      "experience": "Coolblue Energie Product Manager",
+      "experience": "Coolblue Energie PM",
       "starr": {
         "situation": "Stores sold energy contracts through our consumer website, and staff handed out physical gift cards by hand. It worked and had to scale.",
         "task": "As owner of online sales from our stores, I had to make contracting faster for staff and customers.",
@@ -142,7 +142,7 @@
       "summary": "Unsure about a heat pump? A 72-hour prototype lifted conversion 3%.",
       "status": "published",
       "tags": [],
-      "experience": "Coolblue Energie Product Manager",
+      "experience": "Coolblue Energie PM",
       "starr": {
         "situation": "Heat pump sales dropped. Our funnel only served customers who already wanted one: they left their details and sales called them. Interested but unsure customers had nowhere to go.",
         "task": "I had to recover sales by serving this bigger mid-funnel group.",
@@ -159,7 +159,7 @@
       "summary": "Stores spotted outages first, until we proved over 99% uptime.",
       "status": "published",
       "tags": [],
-      "experience": "Coolblue Energie Product Manager",
+      "experience": "Coolblue Energie PM",
       "starr": {
         "situation": "Store staff reported website outages in a Google Chat before my team knew. We were always reacting, and their trust in our sales flow suffered.",
         "task": "I wanted us to warn stores before they noticed, and to prove our flow was reliable.",
@@ -176,7 +176,7 @@
       "summary": "A data platform vision still guiding the team almost two years later.",
       "status": "published",
       "tags": [],
-      "experience": "Coolblue Data Product Owner",
+      "experience": "Coolblue Data PO",
       "starr": {
         "situation": "Coolblue's central data platform team built what was new in the industry and shipped it without asking the 15+ data teams it served.",
         "task": "As Data Product Owner, I had to define who we built for and why.",
@@ -193,7 +193,7 @@
       "summary": "A pilot team gained data visibility our internal tooling never gave.",
       "status": "published",
       "tags": [],
-      "experience": "Coolblue Data Product Owner",
+      "experience": "Coolblue Data PO",
       "starr": {
         "situation": "Board members could not always trust their report data. My manager, the Head of Data, had started talks with Monte Carlo, a data observability tool.",
         "task": "I had to take Monte Carlo from pilot to contract, then get 15+ data teams to adopt it.",
@@ -210,7 +210,7 @@
       "summary": "Two split tests lifted attached margin 7%, worth about €3.5M a year.",
       "status": "published",
       "tags": [],
-      "experience": "Coolblue Product Owner",
+      "experience": "Coolblue PO",
       "starr": {
         "situation": "An automated logic picked which brand and model to show within each product type, weighing units sold against margin. Nobody had revisited it.",
         "task": "As cross-sell Product Owner, I owned attached margin per product and had to grow it.",
@@ -227,7 +227,7 @@
       "summary": "Why hardcode vendor deals when sales can do it? €140k in year one.",
       "status": "published",
       "tags": [],
-      "experience": "Coolblue Product Owner",
+      "experience": "Coolblue PO",
       "starr": {
         "situation": "Our new cross-sell page ran on automated recommendations, but sales teams sold spots on it to vendors for €5k to €50k each.",
         "task": "I had to honour those deals without losing the logic or my team's focus.",
@@ -244,7 +244,7 @@
       "summary": "A reviews-first page for German shoppers lifted attached margin 8%.",
       "status": "published",
       "tags": [],
-      "experience": "Coolblue Product Owner",
+      "experience": "Coolblue PO",
       "starr": {
         "situation": "Coolblue sold in the Netherlands, Belgium and Germany, with Germany as the priority. Cross-sell treated all three the same.",
         "task": "I had to make cross-sell fit each market without splitting the platform.",
@@ -261,7 +261,7 @@
       "summary": "Feedback from 100+ colleagues started arriving early enough to shape the build.",
       "status": "published",
       "tags": [],
-      "experience": "Coolblue Product Owner",
+      "experience": "Coolblue PO",
       "starr": {
         "situation": "Over 100 category team members in sales, content and marketing relied on my products to grow attached margin. I owned cross-sell, upsell, installation services and our five website languages.",
         "task": "I needed their feedback early, without losing my time for building.",

@@ -58,6 +58,22 @@ const STARR_LABELS = [
   ['reflection', 'Reflection']
 ];
 
+const EXPERIENCE_TAG_CLASSES = {
+  'Independent projects': 'case-tag--independent',
+  'Coolblue Energie PM': 'case-tag--energie-pm',
+  'Coolblue Data PO': 'case-tag--data-po',
+  'Coolblue PO': 'case-tag--po'
+};
+
+function getExperienceTagClass(label) {
+  const modifier = EXPERIENCE_TAG_CLASSES[label];
+  if (!modifier) {
+    console.warn(`Unknown experience label: ${label}`);
+    return 'case-tag';
+  }
+  return `case-tag ${modifier}`;
+}
+
 function createModal(caseItem) {
   const starr = caseItem.starr || {};
   const sections = STARR_LABELS
@@ -73,7 +89,7 @@ function createModal(caseItem) {
         <div class="modal-content">
           <p class="eyebrow">Case study</p>
           <h3>${escapeHtml(caseItem.title)}</h3>
-          <p class="small">${escapeHtml(caseItem.experience || '')}</p>
+          <span class="${getExperienceTagClass(caseItem.experience)}">${escapeHtml(caseItem.experience || '')}</span>
           <div class="starr-list">${sections}</div>
           ${metrics.length ? `<div class="metrics">${metrics.map(metric => `<span>${escapeHtml(metric)}</span>`).join('')}</div>` : ''}
           ${aiApplications.length ? `<div class="ai-placeholder-row">${aiApplications.map(app => `<div class="ai-placeholder">${escapeHtml(app)}</div>`).join('')}</div>` : ''}
@@ -290,7 +306,7 @@ function renderSite(data, role, mode) {
 
     return `
       <article class="case-item" data-clickable="true" data-case-id="${escapeHtml(item.id)}" tabindex="0" role="button" aria-label="Open case study: ${escapeHtml(item.title)}">
-        <span class="case-tag">${escapeHtml(item.experience || '')}</span>
+        <span class="${getExperienceTagClass(item.experience)}">${escapeHtml(item.experience || '')}</span>
         <h3>${escapeHtml(item.title)}</h3>
         <p>${escapeHtml(item.summary)}</p>
       </article>
