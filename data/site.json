@@ -13,8 +13,9 @@
       "location": "Originally from the Netherlands, based in Kuala Lumpur, Malaysia.",
       "photo": "Photos/Profile photo/B3192E5B-B271-49F2-8239-9DFBD9219757.PNG",
       "highlights": [
-        { "title": "10+ years", "detail": "professional experience" },
-        { "title": "5+ years", "detail": "in product development" }
+        { "title": "10+ years", "detail": "work experience" },
+        { "title": "5 years", "detail": "in product, Western European e-commerce" },
+        { "title": "3 domains", "detail": "e-commerce, data platforms, energy and AI" }
       ],
       "cta": {
         "cv": { "label": "Open CV", "href": "Resume/Jordy_Graven_CV.pdf", "download": true },
@@ -25,21 +26,21 @@
     "byRole": {
       "pm": {
         "eyebrow": "AI-DRIVEN PRODUCT MANAGER",
-        "headline": "I build product experiences that feel simple, useful, and intelligently automated.",
-        "subhead": "I'm a product leader with 10+ years of professional experience across regulated industries and product development. I work at the intersection of strategy, automation, and measurable outcomes."
+        "headline": "I build product experiences that feel simple and useful, using the latest AI to get there faster.",
+        "subhead": "I'm a Product Manager who uses AI hands-on, every day. At Coolblue I took two AI agents into production. Today I build my own products with Claude Code, so I know what AI can do for a product and what it takes to ship it."
       },
       "ai-specialist": {
-        "eyebrow": "HANDS-ON AI / GENERATIVE AI SPECIALIST",
-        "headline": "I design and ship AI products end to end, from idea to production.",
-        "subhead": "I build with Claude Code, agentic workflows, and modern AI tooling, turning ideas into working, deployed products rather than just specs. 10+ years in product, now building hands-on."
+        "eyebrow": "HANDS-ON GENERATIVE AI SPECIALIST",
+        "headline": "I build AI products end to end, and I know which ones are worth building.",
+        "subhead": "At Coolblue, I built products with AI solutions, including two AI agents in production. Now I build AI products myself with Claude Code. My product background means I weigh value against effort before I build anything."
       }
     },
     "byMode": {
       "malaysia": {
-        "availabilityLine": "Spouse visa (LTSVP) expected in February 2027, directly available via Employment Pass sponsorship."
+        "availabilityLine": "Available now. Based in Kuala Lumpur and open to Employment Pass sponsorship."
       },
       "remote": {
-        "availabilityLine": "Based in Kuala Lumpur. Directly available for remote roles across the EU and UK, no sponsorship required."
+        "availabilityLine": "Available now. Based in Kuala Lumpur, EU citizen, open to remote roles with EU employers. Flexible on working hours, including full EU hours."
       },
       "freelance": {
         "wipBannerText": "🚧 Freelance offering is still in progress. Full case studies and engagement details are launching soon. Reach out now to discuss early availability.",
