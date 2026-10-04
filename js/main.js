@@ -439,50 +439,6 @@ function renderSite(data, role, mode) {
   });
 }
 
-function renderResume(data) {
-  const experienceMarkup = data.experience.map(item => `
-    <article class="timeline-item ${escapeHtml(item.type || '')}">
-      <div class="meta">
-        <strong>${escapeHtml(item.role)}</strong>
-        <span>${escapeHtml(item.period)}</span>
-      </div>
-      <p><strong>${escapeHtml(item.company)}</strong></p>
-      <ul>${item.highlights.map(highlight => `<li>${escapeHtml(highlight)}</li>`).join('')}</ul>
-    </article>
-  `).join('');
-
-  contentRoot.innerHTML = `
-    <section class="section">
-      <div class="resume-grid">
-        <div class="resume-panel">
-          <span class="eyebrow">Resume</span>
-          <h1>${escapeHtml(data.profile.name)}</h1>
-          <p><strong>${escapeHtml(data.profile.title)}</strong></p>
-          <p>${escapeHtml(data.profile.summary)}</p>
-        </div>
-        <div class="resume-panel">
-          <h2>Skills</h2>
-          <div class="tags">
-            ${data.skills.map(skill => `<span class="tag">${escapeHtml(skill)}</span>`).join('')}
-          </div>
-          <h2 style="margin-top: 16px;">Certifications</h2>
-          <ul>
-            ${data.certifications.map(item => `<li>${escapeHtml(item)}</li>`).join('')}
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <h2>Experience</h2>
-        <p>Career progression across growth, operations, and product ownership.</p>
-      </div>
-      <div class="timeline">${experienceMarkup}</div>
-    </section>
-  `;
-}
-
 const SWITCHER_SESSION_KEY = 'switcherVisitedFromHub';
 
 function isRootPage() {
@@ -558,18 +514,13 @@ function renderSwitcher(data) {
 
 (async function init() {
   try {
-    if (pageType === 'resume') {
-      const data = await loadJson('data/resume.json');
-      renderResume(data);
-    } else {
-      const [data, caseStudiesData] = await Promise.all([
-        loadJson('data/site.json'),
-        loadJson('data/case-studies.json')
-      ]);
-      data.caseStudies = resolveCaseStudies(data.caseStudySelections, pageRole, pageMode, caseStudiesData.caseStudies || []);
-      renderSite(data, pageRole, pageMode);
-      renderSwitcher(data);
-    }
+    const [data, caseStudiesData] = await Promise.all([
+      loadJson('data/site.json'),
+      loadJson('data/case-studies.json')
+    ]);
+    data.caseStudies = resolveCaseStudies(data.caseStudySelections, pageRole, pageMode, caseStudiesData.caseStudies || []);
+    renderSite(data, pageRole, pageMode);
+    renderSwitcher(data);
     trackEvent('portfolio_page_view', { page: pageType, role: pageRole, mode: pageMode });
 
     document.querySelectorAll('a[href*="Jordy_Graven_CV.pdf"]').forEach(link => {

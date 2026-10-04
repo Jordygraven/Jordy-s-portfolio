@@ -1,3 +1,6 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/resume", "destination": "/Resume/Jordy_Graven_CV.pdf", "permanent": false }
+  ]
 }
