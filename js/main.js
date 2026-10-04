@@ -322,7 +322,6 @@ function renderSite(data, role, mode) {
         <span class="eyebrow">${escapeHtml(hero.eyebrow)}</span>
         <h1>${escapeHtml(hero.headline)}</h1>
         <p>${escapeHtml(hero.subhead)}</p>
-        <p>${escapeHtml(hero.location)}</p>
         <p class="hero-subline">${escapeHtml(hero.availabilityLine)}</p>
         <div class="hero-actions">
           <a class="button" href="${escapeHtml(hero.cta.cv.href)}" ${hero.cta.cv.download ? 'download' : ''}>${escapeHtml(hero.cta.cv.label)}</a>

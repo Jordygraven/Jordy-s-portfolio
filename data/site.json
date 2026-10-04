@@ -10,7 +10,6 @@
   ],
   "hero": {
     "base": {
-      "location": "Originally from the Netherlands, based in Kuala Lumpur, Malaysia.",
       "photo": "Photos/Profile photo/B3192E5B-B271-49F2-8239-9DFBD9219757.PNG",
       "highlights": [
         { "title": "10+ years", "detail": "work experience" },
@@ -37,14 +36,14 @@
     },
     "byMode": {
       "malaysia": {
-        "availabilityLine": "Available now. Based in Kuala Lumpur and open to Employment Pass sponsorship."
+        "availabilityLine": "Available now · Based in Kuala Lumpur · Open to Employment Pass sponsorship"
       },
       "remote": {
-        "availabilityLine": "Available now. Based in Kuala Lumpur, EU citizen, open to remote roles with EU employers. Flexible on working hours, including full EU hours."
+        "availabilityLine": "Available now · EU citizen based in Kuala Lumpur · Open to remote roles · Flexible on working hours"
       },
       "freelance": {
         "wipBannerText": "🚧 Freelance offering is still in progress. Full case studies and engagement details are launching soon. Reach out now to discuss early availability.",
-        "availabilityLine": "Open to early freelance conversations now."
+        "availabilityLine": "Based in Kuala Lumpur · Open to early freelance conversations now"
       }
     }
   },
