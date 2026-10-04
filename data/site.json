@@ -64,7 +64,7 @@
     },
     {
       "title": "Automation and AI",
-      "description": "I design AI-assisted workflows, agentic prototypes, and operating systems that make teams faster without losing control.",
+      "description": "I design AI-assisted workflows and agentic prototypes that make teams faster without losing control.",
       "tags": ["AI concepts", "Prompt design", "Automation"]
     },
     {
@@ -168,10 +168,10 @@
     "title": "About me",
     "intro": "I’m curious, energetic, and happiest when I’m learning, moving, and building with good people. Outside of work I travel, train, explore food, and keep chasing new experiences.",
     "traits": [
-      "Loyal — Long, trusting relationships at work and beyond.",
-      "Positive — Energy is a force multiplier on every team I join.",
-      "Adventurous — From Hyrox arenas to Southeast Asian backroads.",
-      "Energetic — I move fast, but always with intention."
+      "Loyal: long, trusting relationships at work and beyond.",
+      "Positive: energy is a force multiplier on every team I join.",
+      "Adventurous: from Hyrox arenas to Southeast Asian backroads.",
+      "Energetic: I move fast, but always with intention."
     ]
   },
   "gallery": [
