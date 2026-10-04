@@ -172,6 +172,12 @@ function renderHeaderIcons() {
   });
 }
 
+function renderHeaderWhatsapp(data) {
+  const link = document.querySelector('[data-header-whatsapp]');
+  if (!link) return;
+  link.href = data.hero.base.cta.whatsapp.href;
+}
+
 function getContactClass(type) {
   switch (type) {
     case 'WhatsApp':
@@ -521,6 +527,7 @@ function renderSwitcher(data) {
     data.caseStudies = resolveCaseStudies(data.caseStudySelections, pageRole, pageMode, caseStudiesData.caseStudies || []);
     renderSite(data, pageRole, pageMode);
     renderSwitcher(data);
+    renderHeaderWhatsapp(data);
     trackEvent('portfolio_page_view', { page: pageType, role: pageRole, mode: pageMode });
 
     document.querySelectorAll('a[href*="Jordy_Graven_CV.pdf"]').forEach(link => {
