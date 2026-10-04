@@ -10,40 +10,40 @@
   ],
   "hero": {
     "base": {
-      "location": "Originally from the Netherlands, based in Kuala Lumpur, Malaysia.",
       "photo": "Photos/Profile photo/B3192E5B-B271-49F2-8239-9DFBD9219757.PNG",
       "highlights": [
-        { "title": "10+ years", "detail": "professional experience" },
-        { "title": "5+ years", "detail": "in product development" }
+        { "title": "10+ years", "detail": "work experience" },
+        { "title": "5 years", "detail": "in product, Western European e-commerce" },
+        { "title": "3 domains", "detail": "e-commerce, data platforms, energy and AI" }
       ],
       "cta": {
         "cv": { "label": "Open CV", "href": "Resume/Jordy_Graven_CV.pdf", "download": true },
-        "whatsapp": { "label": "WhatsApp", "href": "https://wa.me/31614831786" },
+        "whatsapp": { "label": "WhatsApp", "href": "https://wa.me/60123209054" },
         "linkedin": { "label": "LinkedIn", "href": "https://www.linkedin.com/in/jordy-graven-52429265/" }
       }
     },
     "byRole": {
       "pm": {
         "eyebrow": "AI-DRIVEN PRODUCT MANAGER",
-        "headline": "I build product experiences that feel simple, useful, and intelligently automated.",
-        "subhead": "I'm a product leader with 10+ years of professional experience across regulated industries and product development. I work at the intersection of strategy, automation, and measurable outcomes."
+        "headline": "I build product experiences that feel simple and useful, using the latest AI to get there faster.",
+        "subhead": "I'm a Product Manager who uses AI hands-on, every day. At Coolblue I took two AI agents into production. Today I build my own products with Claude Code, so I know what AI can do for a product and what it takes to ship it."
       },
       "ai-specialist": {
-        "eyebrow": "HANDS-ON AI / GENERATIVE AI SPECIALIST",
-        "headline": "I design and ship AI products end to end, from idea to production.",
-        "subhead": "I build with Claude Code, agentic workflows, and modern AI tooling, turning ideas into working, deployed products rather than just specs. 10+ years in product, now building hands-on."
+        "eyebrow": "HANDS-ON GENERATIVE AI SPECIALIST",
+        "headline": "I build AI products end to end, and I know which ones are worth building.",
+        "subhead": "At Coolblue, I built products with AI solutions, including two AI agents in production. Now I build AI products myself with Claude Code. My product background means I weigh value against effort before I build anything."
       }
     },
     "byMode": {
       "malaysia": {
-        "availabilityLine": "Spouse visa (LTSVP) expected in February 2027, directly available via Employment Pass sponsorship."
+        "availabilityLine": "Available now · Based in Kuala Lumpur · Open to Employment Pass sponsorship"
       },
       "remote": {
-        "availabilityLine": "Based in Kuala Lumpur. Directly available for remote roles across the EU and UK, no sponsorship required."
+        "availabilityLine": "Available now · EU citizen based in Kuala Lumpur · Open to remote roles · Flexible on working hours"
       },
       "freelance": {
         "wipBannerText": "🚧 Freelance offering is still in progress. Full case studies and engagement details are launching soon. Reach out now to discuss early availability.",
-        "availabilityLine": "Open to early freelance conversations now."
+        "availabilityLine": "Based in Kuala Lumpur · Open to early freelance conversations now"
       }
     }
   },
@@ -63,7 +63,7 @@
     },
     {
       "title": "Automation and AI",
-      "description": "I design AI-assisted workflows, agentic prototypes, and operating systems that make teams faster without losing control.",
+      "description": "I design AI-assisted workflows and agentic prototypes that make teams faster without losing control.",
       "tags": ["AI concepts", "Prompt design", "Automation"]
     },
     {
@@ -74,39 +74,39 @@
   ],
   "experience": [
     {
-      "role": "Customer Services Agent",
-      "company": "ONVZ Health Insurances",
-      "period": "Nov 2014 — Jul 2021",
-      "summary": "Started with direct customer problem-solving and grew into leading journey improvements in a complex regulated environment.",
+      "role": "Product Manager & AI Specialist",
+      "company": "Self-directed development, Kuala Lumpur",
+      "period": "Sep 2026 - Present",
+      "summary": "Building AI tools with agentic coding, one already in daily use.",
+      "type": "present"
+    },
+    {
+      "role": "Product Manager",
+      "company": "Coolblue Energie",
+      "period": "Jan 2025 - Sep 2026",
+      "summary": "Owned two customer-facing AI agents. The sales agent lifted conversion 6% in its first test, and the self-service agent cut term amount tickets 30%. Also led the regulatory pivot of the welcome benefit for 18 stores.",
+      "type": "recent"
+    },
+    {
+      "role": "Data Product Owner",
+      "company": "Coolblue",
+      "period": "Jun 2024 - Jan 2025",
+      "summary": "Set the product vision for a data platform serving 15+ data teams, and led adoption of a data observability tool, starting with one pilot team.",
       "type": "standard"
     },
     {
       "role": "Product Owner",
       "company": "Coolblue",
-      "period": "Jul 2021 — Jan 2024",
-      "summary": "Built a cross-sell orchestration platform and recommendation engine that connected insight, automation, and commercial outcomes.",
+      "period": "Jul 2021 - Jan 2024",
+      "summary": "Built margin-aware cross-sell logic worth about €3.5M margin a year, and a self-service platform that added €140k in vendor placements.",
       "type": "standard"
     },
     {
-      "role": "Sabbatical",
-      "company": "Travel & reflection",
-      "period": "Jan 2024 — Jun 2024",
-      "summary": "A short season of travel, cultural immersion, and personal reflection that reset how I work and lead.",
-      "type": "compact"
-    },
-    {
-      "role": "Data Product Owner",
-      "company": "Coolblue",
-      "period": "Jun 2024 — Jan 2025",
-      "summary": "Created a Data-as-a-Product vision for the central data platform team and aligned stakeholders around a strong operating model.",
-      "type": "recent"
-    },
-    {
-      "role": "Product Manager",
-      "company": "Coolblue Energie",
-      "period": "Jan 2025 — Present",
-      "summary": "Building growth-oriented product experiences in a regulated energy market while strengthening end-to-end delivery and AI-enabled support flows.",
-      "type": "present"
+      "role": "Customer Service Agent",
+      "company": "ONVZ (health insurance)",
+      "period": "Nov 2014 - Jul 2021",
+      "summary": "Seven years in health insurance customer service, across phone, email, live chat and social media. Led the customer service side of a product portfolio redesign and trained 140 agents on the change. Helped make insurance statements self-service, preventing urgent repeat calls.",
+      "type": "standard"
     }
   ],
   "toolkit": {
@@ -121,25 +121,31 @@
           { "name": "Miro", "icon": "miro" },
           { "name": "Google Analytics", "icon": "googleanalytics" },
           { "name": "SQL", "icon": "mysql" },
-          { "name": "Looker", "icon": "looker" }
+          { "name": "Looker", "icon": "looker" },
+          { "name": "BigQuery", "icon": "googlebigquery" },
+          { "name": "Datadog", "icon": "datadog" }
         ]
       },
       {
-        "title": "AI Applications",
+        "title": "AI and build tools",
         "items": [
           { "name": "Claude (Code)", "icon": "claude" },
+          { "name": "Anthropic API", "icon": "anthropic" },
+          { "name": "LangSmith", "icon": "langchain" },
           { "name": "n8n", "icon": "n8n" },
-          { "name": "Glean", "icon": "glean" },
+          { "name": "Glean" },
           { "name": "Replit", "icon": "replit" },
-          { "name": "Base44", "icon": "base44" },
-          { "name": "Lovable", "icon": "lovable" },
+          { "name": "Base44" },
+          { "name": "Lovable" },
           { "name": "v0.app", "icon": "v0" },
-          { "name": "Gemini", "icon": "googlebard" },
-          { "name": "ChatGPT", "icon": "openai" },
+          { "name": "Gemini", "icon": "googlegemini" },
+          { "name": "ChatGPT" },
+          { "name": "Supabase", "icon": "supabase" },
+          { "name": "Next.js", "icon": "nextdotjs" },
           { "name": "Docker", "icon": "docker" },
           { "name": "GitHub", "icon": "github" },
           { "name": "Vercel", "icon": "vercel" },
-          { "name": "VS Code", "icon": "vscode" },
+          { "name": "VS Code" },
           { "name": "Ngrok", "icon": "ngrok" },
           { "name": "PostHog", "icon": "posthog" }
         ]
@@ -161,10 +167,10 @@
     "title": "About me",
     "intro": "I’m curious, energetic, and happiest when I’m learning, moving, and building with good people. Outside of work I travel, train, explore food, and keep chasing new experiences.",
     "traits": [
-      "Loyal — Long, trusting relationships at work and beyond.",
-      "Positive — Energy is a force multiplier on every team I join.",
-      "Adventurous — From Hyrox arenas to Southeast Asian backroads.",
-      "Energetic — I move fast, but always with intention."
+      "Loyal: long, trusting relationships at work and beyond.",
+      "Positive: energy is a force multiplier on every team I join.",
+      "Adventurous: from Hyrox arenas to Southeast Asian backroads.",
+      "Energetic: I move fast, but always with intention."
     ]
   },
   "gallery": [
@@ -181,7 +187,7 @@
   "contact": {
     "intro": "If you’re looking for a product-minded operator who can bridge strategy, AI, and execution, I’d love to hear from you.",
     "channels": [
-      { "type": "WhatsApp", "label": "WhatsApp", "value": "+31 6 14831786", "href": "https://wa.me/31614831786" },
+      { "type": "WhatsApp", "label": "WhatsApp", "value": "+60 12-320 9054", "href": "https://wa.me/60123209054" },
       { "type": "Email", "label": "Email", "value": "jordygraven@gmail.com", "href": "mailto:jordygraven@gmail.com" },
       { "type": "LinkedIn", "label": "LinkedIn", "value": "linkedin.com/in/jordy-graven-52429265", "href": "https://www.linkedin.com/in/jordy-graven-52429265/" }
     ]

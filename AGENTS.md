@@ -5,11 +5,9 @@ This workspace is a static personal portfolio site built with plain HTML, CSS, a
 
 ## Key files
 - [index.html](index.html) — homepage structure
-- [resume.html](resume.html) — resume page structure
 - [css/styles.css](css/styles.css) — site styling
 - [js/main.js](js/main.js) — content rendering, interactions, and analytics hooks
 - [data/site.json](data/site.json) — homepage content data
-- [data/resume.json](data/resume.json) — resume content data
 - [Resume/Jordy_Graven_CV.pdf](Resume/Jordy_Graven_CV.pdf) — CV asset
 
 ## Working conventions
@@ -32,5 +30,4 @@ The site uses PostHog in the browser. Keep the analytics initialization logic in
 
 ## Content notes
 - The homepage uses data-driven rendering from [data/site.json](data/site.json).
-- The resume page uses data from [data/resume.json](data/resume.json).
 - Images live under [Photos](Photos) and should be referenced relative to the project root.

@@ -172,6 +172,12 @@ function renderHeaderIcons() {
   });
 }
 
+function renderHeaderWhatsapp(data) {
+  const link = document.querySelector('[data-header-whatsapp]');
+  if (!link) return;
+  link.href = data.hero.base.cta.whatsapp.href;
+}
+
 function getContactClass(type) {
   switch (type) {
     case 'WhatsApp':
@@ -187,30 +193,7 @@ function getContactClass(type) {
 
 function getToolIconUrl(icon) {
   if (!icon) return '';
-
-  const supportedIcons = new Set([
-    'jira',
-    'figma',
-    'lucid',
-    'miro',
-    'googleanalytics',
-    'mysql',
-    'looker',
-    'claude',
-    'n8n',
-    'replit',
-    'docker',
-    'github',
-    'vercel',
-    'ngrok',
-    'posthog',
-    'v0'
-  ]);
-
-  const normalized = String(icon).toLowerCase();
-  if (!supportedIcons.has(normalized)) return '';
-
-  return `https://cdn.simpleicons.org/${encodeURIComponent(icon)}`;
+  return `icons/tools/${encodeURIComponent(String(icon).toLowerCase())}.svg`;
 }
 
 function renderLightbox(items, index) {
@@ -284,7 +267,7 @@ function renderSite(data, role, mode) {
           const iconUrl = getToolIconUrl(item.icon);
           return `
           <span class="toolkit-item">
-            ${iconUrl ? `<img src="${escapeHtml(iconUrl)}" alt="" />` : ''}
+            ${iconUrl ? `<img src="${escapeHtml(iconUrl)}" alt="" data-tool="${escapeHtml(item.name)}" />` : ''}
             ${escapeHtml(item.name)}
           </span>
         `;
@@ -339,7 +322,6 @@ function renderSite(data, role, mode) {
         <span class="eyebrow">${escapeHtml(hero.eyebrow)}</span>
         <h1>${escapeHtml(hero.headline)}</h1>
         <p>${escapeHtml(hero.subhead)}</p>
-        <p>${escapeHtml(hero.location)}</p>
         <p class="hero-subline">${escapeHtml(hero.availabilityLine)}</p>
         <div class="hero-actions">
           <a class="button" href="${escapeHtml(hero.cta.cv.href)}" ${hero.cta.cv.download ? 'download' : ''}>${escapeHtml(hero.cta.cv.label)}</a>
@@ -415,6 +397,13 @@ function renderSite(data, role, mode) {
     </section>
   `;
 
+  document.querySelectorAll('.toolkit-item img[data-tool]').forEach(img => {
+    img.addEventListener('error', () => {
+      console.warn(`Missing toolkit icon for "${img.dataset.tool}"`);
+      img.remove();
+    }, { once: true });
+  });
+
   document.querySelectorAll('.case-item[data-clickable="true"]').forEach(card => {
     card.addEventListener('click', () => {
       const caseItem = (data.caseStudies || []).find(item => item.id === card.dataset.caseId);
@@ -453,50 +442,6 @@ function renderSite(data, role, mode) {
       renderLightbox(galleryItems, index);
     });
   });
-}
-
-function renderResume(data) {
-  const experienceMarkup = data.experience.map(item => `
-    <article class="timeline-item ${escapeHtml(item.type || '')}">
-      <div class="meta">
-        <strong>${escapeHtml(item.role)}</strong>
-        <span>${escapeHtml(item.period)}</span>
-      </div>
-      <p><strong>${escapeHtml(item.company)}</strong></p>
-      <ul>${item.highlights.map(highlight => `<li>${escapeHtml(highlight)}</li>`).join('')}</ul>
-    </article>
-  `).join('');
-
-  contentRoot.innerHTML = `
-    <section class="section">
-      <div class="resume-grid">
-        <div class="resume-panel">
-          <span class="eyebrow">Resume</span>
-          <h1>${escapeHtml(data.profile.name)}</h1>
-          <p><strong>${escapeHtml(data.profile.title)}</strong></p>
-          <p>${escapeHtml(data.profile.summary)}</p>
-        </div>
-        <div class="resume-panel">
-          <h2>Skills</h2>
-          <div class="tags">
-            ${data.skills.map(skill => `<span class="tag">${escapeHtml(skill)}</span>`).join('')}
-          </div>
-          <h2 style="margin-top: 16px;">Certifications</h2>
-          <ul>
-            ${data.certifications.map(item => `<li>${escapeHtml(item)}</li>`).join('')}
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <h2>Experience</h2>
-        <p>Career progression across growth, operations, and product ownership.</p>
-      </div>
-      <div class="timeline">${experienceMarkup}</div>
-    </section>
-  `;
 }
 
 const SWITCHER_SESSION_KEY = 'switcherVisitedFromHub';
@@ -574,18 +519,14 @@ function renderSwitcher(data) {
 
 (async function init() {
   try {
-    if (pageType === 'resume') {
-      const data = await loadJson('data/resume.json');
-      renderResume(data);
-    } else {
-      const [data, caseStudiesData] = await Promise.all([
-        loadJson('data/site.json'),
-        loadJson('data/case-studies.json')
-      ]);
-      data.caseStudies = resolveCaseStudies(data.caseStudySelections, pageRole, pageMode, caseStudiesData.caseStudies || []);
-      renderSite(data, pageRole, pageMode);
-      renderSwitcher(data);
-    }
+    const [data, caseStudiesData] = await Promise.all([
+      loadJson('data/site.json'),
+      loadJson('data/case-studies.json')
+    ]);
+    data.caseStudies = resolveCaseStudies(data.caseStudySelections, pageRole, pageMode, caseStudiesData.caseStudies || []);
+    renderSite(data, pageRole, pageMode);
+    renderSwitcher(data);
+    renderHeaderWhatsapp(data);
     trackEvent('portfolio_page_view', { page: pageType, role: pageRole, mode: pageMode });
 
     document.querySelectorAll('a[href*="Jordy_Graven_CV.pdf"]').forEach(link => {
