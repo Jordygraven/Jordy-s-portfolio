@@ -985,23 +985,21 @@ img {
     gap: 14px;
   }
 
+  .hero-copy {
+    display: contents;
+  }
+
   .hero-copy .eyebrow {
+    order: 1;
     margin-bottom: 8px;
   }
 
-  .hero-copy h1 {
-    font-size: 1.32rem;
-    line-height: 1.2;
-    margin-bottom: 8px;
-  }
-
-  .hero-copy p {
-    font-size: 0.85rem;
-    line-height: 1.42;
-    margin-bottom: 8px;
+  .hero-copy .hero-subline {
+    order: 2;
   }
 
   .hero-actions {
+    order: 3;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
@@ -1015,6 +1013,23 @@ img {
   .hero-actions .button {
     padding: 8px 10px;
     font-size: 0.85rem;
+  }
+
+  .hero-copy h1 {
+    order: 4;
+    font-size: 1.32rem;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .hero-copy > p:not(.hero-subline) {
+    order: 5;
+  }
+
+  .hero-copy p {
+    font-size: 0.85rem;
+    line-height: 1.42;
+    margin-bottom: 8px;
   }
 
   .hero-panel {
