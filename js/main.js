@@ -187,30 +187,7 @@ function getContactClass(type) {
 
 function getToolIconUrl(icon) {
   if (!icon) return '';
-
-  const supportedIcons = new Set([
-    'jira',
-    'figma',
-    'lucid',
-    'miro',
-    'googleanalytics',
-    'mysql',
-    'looker',
-    'claude',
-    'n8n',
-    'replit',
-    'docker',
-    'github',
-    'vercel',
-    'ngrok',
-    'posthog',
-    'v0'
-  ]);
-
-  const normalized = String(icon).toLowerCase();
-  if (!supportedIcons.has(normalized)) return '';
-
-  return `https://cdn.simpleicons.org/${encodeURIComponent(icon)}`;
+  return `icons/tools/${encodeURIComponent(String(icon).toLowerCase())}.svg`;
 }
 
 function renderLightbox(items, index) {
@@ -284,7 +261,7 @@ function renderSite(data, role, mode) {
           const iconUrl = getToolIconUrl(item.icon);
           return `
           <span class="toolkit-item">
-            ${iconUrl ? `<img src="${escapeHtml(iconUrl)}" alt="" />` : ''}
+            ${iconUrl ? `<img src="${escapeHtml(iconUrl)}" alt="" data-tool="${escapeHtml(item.name)}" />` : ''}
             ${escapeHtml(item.name)}
           </span>
         `;
@@ -414,6 +391,13 @@ function renderSite(data, role, mode) {
       </div>
     </section>
   `;
+
+  document.querySelectorAll('.toolkit-item img[data-tool]').forEach(img => {
+    img.addEventListener('error', () => {
+      console.warn(`Missing toolkit icon for "${img.dataset.tool}"`);
+      img.remove();
+    }, { once: true });
+  });
 
   document.querySelectorAll('.case-item[data-clickable="true"]').forEach(card => {
     card.addEventListener('click', () => {

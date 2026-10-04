@@ -122,25 +122,31 @@
           { "name": "Miro", "icon": "miro" },
           { "name": "Google Analytics", "icon": "googleanalytics" },
           { "name": "SQL", "icon": "mysql" },
-          { "name": "Looker", "icon": "looker" }
+          { "name": "Looker", "icon": "looker" },
+          { "name": "BigQuery", "icon": "googlebigquery" },
+          { "name": "Datadog", "icon": "datadog" }
         ]
       },
       {
-        "title": "AI Applications",
+        "title": "AI and build tools",
         "items": [
           { "name": "Claude (Code)", "icon": "claude" },
+          { "name": "Anthropic API", "icon": "anthropic" },
+          { "name": "LangSmith", "icon": "langchain" },
           { "name": "n8n", "icon": "n8n" },
-          { "name": "Glean", "icon": "glean" },
+          { "name": "Glean" },
           { "name": "Replit", "icon": "replit" },
-          { "name": "Base44", "icon": "base44" },
-          { "name": "Lovable", "icon": "lovable" },
+          { "name": "Base44" },
+          { "name": "Lovable" },
           { "name": "v0.app", "icon": "v0" },
-          { "name": "Gemini", "icon": "googlebard" },
-          { "name": "ChatGPT", "icon": "openai" },
+          { "name": "Gemini", "icon": "googlegemini" },
+          { "name": "ChatGPT" },
+          { "name": "Supabase", "icon": "supabase" },
+          { "name": "Next.js", "icon": "nextdotjs" },
           { "name": "Docker", "icon": "docker" },
           { "name": "GitHub", "icon": "github" },
           { "name": "Vercel", "icon": "vercel" },
-          { "name": "VS Code", "icon": "vscode" },
+          { "name": "VS Code" },
           { "name": "Ngrok", "icon": "ngrok" },
           { "name": "PostHog", "icon": "posthog" }
         ]
