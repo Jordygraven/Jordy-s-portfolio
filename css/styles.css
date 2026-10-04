@@ -891,6 +891,11 @@ img {
   margin: 0;
 }
 
+.starr-row p strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
 .ai-placeholder-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

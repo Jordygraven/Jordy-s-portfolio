@@ -8,11 +8,11 @@
       "tags": [],
       "experience": "Independent projects",
       "starr": {
-        "situation": "I was a product manager who had never coded. I wanted a fitness coach that knew my Garmin data and could help plan my training.",
+        "situation": "I was **a product manager who had never coded**. I wanted a fitness coach that knew my Garmin data and could help plan my training.",
         "task": "I set out to prove I could build it with low-code tools.",
-        "action": "Strava's API was paid-only, so I used an open-source Garmin Connect pipeline from GitHub. I built n8n flows that exported my data to CSV, then a Python script that sent it straight to a spreadsheet. The hardest part was merging data points from several files into one source a Gemini chatbot could use.",
-        "result": "It worked, but it was not sustainable. n8n in Docker only ran while my laptop was on, and Gemini's free tier often failed to respond. I rebuilt it in Claude, which now plans my marathon training.",
-        "reflection": "Building it sharpened how I judge developer effort. I now challenge estimates, see where real complexity sits, and find faster ways to test ideas."
+        "action": "Strava's API was paid-only, so I used **an open-source Garmin Connect pipeline from GitHub**. **I built n8n flows** that exported my data to CSV, **then a Python script** that sent it straight to a spreadsheet. The hardest part was merging data points from several files into one source a Gemini chatbot could use.",
+        "result": "It worked, but it was not sustainable. n8n in Docker only ran while my laptop was on, and Gemini's free tier often failed to respond. **I rebuilt it in Claude**, which now plans my marathon training.",
+        "reflection": "Building it **sharpened how I judge developer effort**. I now challenge estimates, see where real complexity sits, and find faster ways to test ideas."
       },
       "metrics": [],
       "aiApplications": []
@@ -25,11 +25,11 @@
       "tags": [],
       "experience": "Independent projects",
       "starr": {
-        "situation": "During my move to Kuala Lumpur, I manage a fixed budget across seven payment methods. No app showed them in one place.",
-        "task": "I set out to build my own expense dashboard, solo, with Claude Code.",
-        "action": "I built it in Next.js and TypeScript, with Supabase. Revolut and ING sync through open banking. My credit card, Wise, ShopeePay, Grab and Touch 'n Go only offer statements, which I first uploaded by hand. To automate that cheaply, I added the Anthropic API for a few euros a month. A daily job now reads saved screenshots into a review list.",
-        "result": "I use it every day. Reviewing yesterday's transactions takes under a minute, and I see my spending across budget pools.",
-        "reflection": "I am investor, customer, developer and product manager in one. I enjoy building, so nice-to-haves tempt me. I now guard priorities and give the user, me, time to adopt before adding more."
+        "situation": "During my move to Kuala Lumpur, I manage a fixed budget across **seven payment methods**. No app showed them in one place.",
+        "task": "I set out to build my own expense dashboard, solo, **with Claude Code**.",
+        "action": "I built it in **Next.js and TypeScript, with Supabase**. Revolut and ING **sync through open banking**. My credit card, Wise, ShopeePay, Grab and Touch 'n Go only offer statements, which I first uploaded by hand. To automate that cheaply, **I added the Anthropic API** for a few euros a month. A daily job now reads saved screenshots into a review list.",
+        "result": "**I use it every day.** Reviewing yesterday's transactions takes under a minute, and I see my spending across budget pools.",
+        "reflection": "I am investor, customer, developer and product manager in one. I enjoy building, so nice-to-haves tempt me. **I now guard priorities** and give the user, me, time to adopt before adding more."
       },
       "metrics": [],
       "aiApplications": []
@@ -59,11 +59,11 @@
       "tags": [],
       "experience": "Coolblue Energie PM",
       "starr": {
-        "situation": "Many customers dropped off on the page showing our energy contracts. A contract is far harder to choose than an iPhone, so we assumed they had questions like \"Which contract suits me best?\"",
-        "task": "As Product Manager, I had to test whether an AI sales chatbot could answer them in the funnel, although customers might distrust AI.",
-        "action": "I had developers run a technical proof of concept. Then I pitched the idea to the board and brought in design, managers and a prompt engineer. We reused the central platform's guardrails and added our own, plus a ground truth. In LangSmith, we reviewed every conversation.",
-        "result": "Hallucinations dropped below 1% within two weeks. In the initial test, the funnel with the chatbot converted 6% better.",
-        "reflection": "After that, a strong vision led us. We shipped small customer-driven improvements without split tests, while tracking conversion, chat volume and prompts per chat as closely as we could."
+        "situation": "**Many customers dropped off** on the page showing our energy contracts. A contract is far harder to choose than an iPhone, so we assumed they had questions like \"Which contract suits me best?\"",
+        "task": "As Product Manager, I had to test whether **an AI sales chatbot** could answer them in the funnel, although customers might distrust AI.",
+        "action": "I had developers run a technical proof of concept. Then I **pitched the idea to the board** and brought in design, managers and a prompt engineer. We **reused the central platform's guardrails** and added our own, plus a ground truth. **In LangSmith, we reviewed every conversation.**",
+        "result": "Hallucinations dropped below 1% within two weeks. In the initial test, the funnel with the chatbot **converted 6% better**.",
+        "reflection": "After that, **a strong vision led us**. We shipped small customer-driven improvements without split tests, while tracking conversion, chat volume and prompts per chat as closely as we could."
       },
       "metrics": [],
       "aiApplications": []
@@ -76,11 +76,11 @@
       "tags": [],
       "experience": "Coolblue Energie PM",
       "starr": {
-        "situation": "Rens, our n8n-built self-service bot, had already cut cost per contact by 13%. But it only answered simple questions, and its owner was stuck waiting for other teams' data.",
-        "task": "I pulled Rens into my team's portfolio to make it act, not just answer.",
-        "action": "I moved it onto Coolblue's Virtual Agent Platform, where website data was already connected. We started with the top request: changing the monthly term amount. Rens could only create tickets, and customer service had a 10-day backlog. Now it made the change itself. Changes of 30% or more went to a human, to avoid large final bills. Legal approved the guardrails.",
-        "result": "Term amount tickets to customer service fell 30%, and the backlog shrank from 10 to 9 business days.",
-        "reflection": "I first asked the wrong people how customer service handled these requests, and missed why guardrails mattered. Next time I start with the team doing the work today."
+        "situation": "Rens, our n8n-built self-service bot, had already cut cost per contact by 13%. But **it only answered simple questions**, and its owner was stuck waiting for other teams' data.",
+        "task": "I pulled Rens into my team's portfolio to **make it act, not just answer**.",
+        "action": "I **moved it onto Coolblue's Virtual Agent Platform**, where website data was already connected. We started with the top request: changing the monthly term amount. Rens could only create tickets, and customer service had a 10-day backlog. Now it made the change itself. Changes of 30% or more went to a human, to avoid large final bills. **Legal approved the guardrails.**",
+        "result": "**Term amount tickets to customer service fell 30%**, and the backlog shrank from 10 to 9 business days.",
+        "reflection": "I first asked the wrong people how customer service handled these requests, and missed why guardrails mattered. Next time **I start with the team doing the work today**."
       },
       "metrics": [],
       "aiApplications": []
@@ -93,11 +93,11 @@
       "tags": [],
       "experience": "Coolblue Energie PM",
       "starr": {
-        "situation": "From 2026, new rules required the welcome benefit for energy contracts in our 18 stores, a Coolblue discount, to become real money customers could spend anywhere.",
+        "situation": "From 2026, **new rules** required the welcome benefit for energy contracts in our 18 stores, a Coolblue discount, to become real money customers could spend anywhere.",
         "task": "I had to make the benefit compliant without hurting store sales or forcing a big tech rebuild.",
-        "action": "Legal set hard limits, sales wanted no change, and tech needed a light solution. I mapped the risks and pitched three scenarios to the board. Paying everything at signing was risky, because customers could cancel after leaving. I recommended letting customers spend it in store immediately, with any unspent balance paid once supply started. The board agreed.",
-        "result": "We went live on 5 January 2026. Store sales held to forecast instead of dipping, and stores outsold online in the months after.",
-        "reflection": "I lost time winning support one stakeholder at a time. Now I start with a decision document and get the decision-makers into one room."
+        "action": "Legal set hard limits, sales wanted no change, and tech needed a light solution. I mapped the risks and **pitched three scenarios to the board**. Paying everything at signing was risky, because customers could cancel after leaving. I recommended letting customers spend it in store immediately, with any unspent balance paid once supply started. **The board agreed.**",
+        "result": "We went live on 5 January 2026. **Store sales held to forecast** instead of dipping, and stores outsold online in the months after.",
+        "reflection": "I lost time winning support one stakeholder at a time. Now **I start with a decision document** and get the decision-makers into one room."
       },
       "metrics": [],
       "aiApplications": []
@@ -110,11 +110,11 @@
       "tags": [],
       "experience": "Coolblue Energie PM",
       "starr": {
-        "situation": "After our January 2026 store pivot, incentive fraud dropped but did not stop. People signed up in several stores under new names, emails and addresses, spent the discount of up to €300 in store and cancelled.",
-        "task": "The store sales manager spotted the problem. I owned the technical fix.",
-        "action": "With a process improver and the sales manager, I mapped the fraud cases. No single pattern stood out. An identity check came first, but it relied on store staff. So I brought two development teams together on a greylisting logic. Customers matching an existing contract or a recent cancellation could no longer spend the discount in store. They got it only once supply started.",
-        "result": "Potential fraud cases dropped 80%, saving about €10,000.",
-        "reflection": "I learned to roll out high-impact logic slowly. Flagging honest customers would hurt our core proposition, so we went from one store to three, then nationwide."
+        "situation": "After our January 2026 store pivot, **incentive fraud dropped but did not stop**. People signed up in several stores under new names, emails and addresses, spent the discount of up to €300 in store and cancelled.",
+        "task": "The store sales manager spotted the problem. **I owned the technical fix.**",
+        "action": "With a process improver and the sales manager, I mapped the fraud cases. No single pattern stood out. An identity check came first, but it relied on store staff. So I **brought two development teams together on a greylisting logic**. Customers matching an existing contract or a recent cancellation could no longer spend the discount in store. They got it only once supply started.",
+        "result": "**Potential fraud cases dropped 80%**, saving about €10,000.",
+        "reflection": "I learned to **roll out high-impact logic slowly**. Flagging honest customers would hurt our core proposition, so we went from one store to three, then nationwide."
       },
       "metrics": [],
       "aiApplications": []
@@ -127,11 +127,11 @@
       "tags": [],
       "experience": "Coolblue Energie PM",
       "starr": {
-        "situation": "Stores sold energy contracts through our consumer website, and staff handed out physical gift cards by hand. It worked and had to scale.",
-        "task": "As owner of online sales from our stores, I had to make contracting faster for staff and customers.",
-        "action": "Automating gift cards in our React and Java stack would take too long, so I chose a vibe-coded MVP with our AI specialist. Using Replit and n8n, customers signed the legal terms and received a gift card code automatically. Leaving the application flow for an external page felt clunky, so once proven, we moved terms and gift cards into the main flow.",
-        "result": "Each sign-up got about 30 seconds faster. Alongside staff training, stores grew into our biggest sales channel, at over €100,000 in contract value a month.",
-        "reflection": "This changed my question. I stopped asking \"what can my team build?\" and started asking \"what resources can improve my product?\""
+        "situation": "Stores sold energy contracts through our consumer website, and **staff handed out physical gift cards by hand**. It worked and had to scale.",
+        "task": "As owner of online sales from our stores, I had to **make contracting faster** for staff and customers.",
+        "action": "Automating gift cards in our React and Java stack would take too long, so **I chose a vibe-coded MVP** with our AI specialist. **Using Replit and n8n**, customers signed the legal terms and received a gift card code automatically. Leaving the application flow for an external page felt clunky, so once proven, **we moved terms and gift cards into the main flow**.",
+        "result": "Each sign-up got **about 30 seconds faster**. Alongside staff training, stores grew into our biggest sales channel, at over €100,000 in contract value a month.",
+        "reflection": "This changed my question. I stopped asking \"what can my team build?\" and started asking **\"what resources can improve my product?\"**"
       },
       "metrics": [],
       "aiApplications": []
@@ -144,11 +144,11 @@
       "tags": [],
       "experience": "Coolblue Energie PM",
       "starr": {
-        "situation": "Heat pump sales dropped. Our funnel only served customers who already wanted one: they left their details and sales called them. Interested but unsure customers had nowhere to go.",
+        "situation": "Heat pump sales dropped. Our funnel only served customers who already wanted one: they left their details and sales called them. **Interested but unsure customers had nowhere to go.**",
         "task": "I had to recover sales by serving this bigger mid-funnel group.",
-        "action": "Marketing spotted the gap, so I brought them together with my product team. Our designer's solution would cost two sprints, too much for an untested hypothesis. So I brought in our AI specialist, who vibe-coded it in 72 hours. Customers could check costs and heat pump types for their home and get a quote, which sales agents then followed up. After the test, we rebuilt it properly in our funnel.",
-        "result": "Conversion rose 3%, worth about €480k in extra sales a year.",
-        "reflection": "Vibe-coding is great for testing a hypothesis, but its tracking was unreliable, and tracking feeds every product decision. I now weigh those flaws before I prototype."
+        "action": "Marketing spotted the gap, so I brought them together with my product team. Our designer's solution would cost two sprints, **too much for an untested hypothesis**. So I brought in our AI specialist, who **vibe-coded it in 72 hours**. Customers could check costs and heat pump types for their home and get a quote, which sales agents then followed up. After the test, **we rebuilt it properly in our funnel**.",
+        "result": "**Conversion rose 3%**, worth about €480k in extra sales a year.",
+        "reflection": "Vibe-coding is great for testing a hypothesis, but its tracking was unreliable, and tracking feeds every product decision. **I now weigh those flaws before I prototype.**"
       },
       "metrics": [],
       "aiApplications": []
@@ -161,11 +161,11 @@
       "tags": [],
       "experience": "Coolblue Energie PM",
       "starr": {
-        "situation": "Store staff reported website outages in a Google Chat before my team knew. We were always reacting, and their trust in our sales flow suffered.",
-        "task": "I wanted us to warn stores before they noticed, and to prove our flow was reliable.",
-        "action": "My team lead built a Datadog dashboard tracking uptime of key pages across channels. I finalized it with him, focused on store opening hours. Datadog fit our website's structure, so it cost little sprint time. We then shared the numbers with the stores.",
-        "result": "The store application flow was up over 99% of opening hours. We now posted outage alerts in the store chat first, and stores replied with understanding.",
-        "reflection": "Store staff only try new features if they trust the flow. A website that breaks several times a day kills that. Reliability is a precondition for adoption."
+        "situation": "Store staff reported **website outages** in a Google Chat **before my team knew**. We were always reacting, and their trust in our sales flow suffered.",
+        "task": "I wanted us to **warn stores before they noticed**, and to prove our flow was reliable.",
+        "action": "My team lead built a Datadog dashboard tracking uptime of key pages across channels. I finalized it with him, focused on store opening hours. Datadog fit our website's structure, so it cost little sprint time. We then **shared the numbers with the stores**.",
+        "result": "The store application flow was **up over 99% of opening hours**. We now posted outage alerts in the store chat first, and stores replied with understanding.",
+        "reflection": "Store staff only try new features if they trust the flow. A website that breaks several times a day kills that. **Reliability is a precondition for adoption.**"
       },
       "metrics": [],
       "aiApplications": []
@@ -178,11 +178,11 @@
       "tags": [],
       "experience": "Coolblue Data PO",
       "starr": {
-        "situation": "Coolblue's central data platform team built what was new in the industry and shipped it without asking the 15+ data teams it served.",
-        "task": "As Data Product Owner, I had to define who we built for and why.",
-        "action": "I first talked with data team managers and analysts. Then I ran vision sessions with the domain manager, tech lead and senior engineers. Those interviews could bias me into steering the group, so a neutral scrum master hosted, briefed by me on what each session had to produce. The vision set out our product, its scope and its users.",
-        "result": "The team finally knew whom it served. Almost two years later, the Product Owner I coached confirmed the vision still guided the team.",
-        "reflection": "Vision work felt like too many hours at the time. Pushing through changed how the team behaved, from shipping without follow-up to engineers talking with their stakeholders."
+        "situation": "Coolblue's central data platform team built what was new in the industry and shipped it **without asking the 15+ data teams it served**.",
+        "task": "As Data Product Owner, I had to **define who we built for and why**.",
+        "action": "I first talked with data team managers and analysts. Then I **ran vision sessions** with the domain manager, tech lead and senior engineers. Those interviews could bias me into steering the group, so **a neutral scrum master hosted**, briefed by me on what each session had to produce. The vision set out our product, its scope and its users.",
+        "result": "The team finally knew whom it served. Almost two years later, the Product Owner I coached confirmed **the vision still guided the team**.",
+        "reflection": "Vision work felt like too many hours at the time. Pushing through changed how the team behaved, from shipping without follow-up to **engineers talking with their stakeholders**."
       },
       "metrics": [],
       "aiApplications": []
@@ -195,11 +195,11 @@
       "tags": [],
       "experience": "Coolblue Data PO",
       "starr": {
-        "situation": "Board members could not always trust their report data. My manager, the Head of Data, had started talks with Monte Carlo, a data observability tool.",
-        "task": "I had to take Monte Carlo from pilot to contract, then get 15+ data teams to adopt it.",
-        "action": "Instead of shipping it and expecting teams to follow, I started with one: the commercial team, which struggled most with reliability and liked new tools. Demos looked complete, but real pipelines exposed vague spots. I let the team dig into those cases themselves, which built confidence faster.",
-        "result": "The commercial team saw more of its data streams than our internal tooling ever showed. Other teams put commercial work first. I left just as reliability became measurable.",
-        "reflection": "We pushed adoption alone, without board backing. Next time I would get my manager to make it a board priority first, so teams made time."
+        "situation": "Board members **could not always trust their report data**. My manager, the Head of Data, had started talks with Monte Carlo, a data observability tool.",
+        "task": "I had to take Monte Carlo from pilot to contract, then **get 15+ data teams to adopt it**.",
+        "action": "Instead of shipping it and expecting teams to follow, **I started with one**: the commercial team, which struggled most with reliability and liked new tools. Demos looked complete, but real pipelines exposed vague spots. I **let the team dig into those cases themselves**, which built confidence faster.",
+        "result": "The commercial team **saw more of its data streams** than our internal tooling ever showed. Other teams put commercial work first. I left just as reliability became measurable.",
+        "reflection": "We pushed adoption alone, without board backing. Next time I would get my manager to **make it a board priority first**, so teams made time."
       },
       "metrics": [],
       "aiApplications": []
@@ -212,11 +212,11 @@
       "tags": [],
       "experience": "Coolblue PO",
       "starr": {
-        "situation": "An automated logic picked which brand and model to show within each product type, weighing units sold against margin. Nobody had revisited it.",
-        "task": "As cross-sell Product Owner, I owned attached margin per product and had to grow it.",
-        "action": "With my analyst, I ran a 28-day split test rebalancing units against margin, then a second to push further. We judged each test on total cross-sell profit, not units or margin alone. After two wins, I built an engine so he could tune the ratio himself, without developers.",
-        "result": "Attached margin per product rose 7% (+4% and +3% against control), worth about €3.5M a year. The analyst ran a few more winning tests alone.",
-        "reflection": "I built the engine for one expert. When he left, no one could run it and the gains stalled. Now I build for many users, not one, and ship a cheaper shortcut first. That would have saved a sprint."
+        "situation": "An automated logic picked which brand and model to show within each product type, weighing units sold against margin. **Nobody had revisited it.**",
+        "task": "As cross-sell Product Owner, I **owned attached margin per product** and had to grow it.",
+        "action": "With my analyst, I **ran a 28-day split test** rebalancing units against margin, then a second to push further. We **judged each test on total cross-sell profit**, not units or margin alone. After two wins, I built an engine so he could **tune the ratio himself, without developers**.",
+        "result": "**Attached margin per product rose 7%** (+4% and +3% against control), worth about €3.5M a year. The analyst ran a few more winning tests alone.",
+        "reflection": "I built the engine for one expert. When he left, no one could run it and the gains stalled. Now **I build for many users, not one**, and ship a cheaper shortcut first. That would have saved a sprint."
       },
       "metrics": [],
       "aiApplications": []
@@ -229,11 +229,11 @@
       "tags": [],
       "experience": "Coolblue PO",
       "starr": {
-        "situation": "Our new cross-sell page ran on automated recommendations, but sales teams sold spots on it to vendors for €5k to €50k each.",
+        "situation": "Our new cross-sell page ran on automated recommendations, but sales teams **sold spots on it to vendors** for €5k to €50k each.",
         "task": "I had to honour those deals without losing the logic or my team's focus.",
-        "action": "At first we hardcoded vendor products by hand. Each change took one developer hour from the sprint goal. Once that lost time outweighed the cost of building a tool, I chose to give sales the keys. I shipped a platform where they overrode the logic themselves, and the logic still filled every spot they left alone.",
-        "result": "Over 100 sales and content colleagues used it. Vendor placements added €140k in the first 12 months, and hardcoded changes faded out as the platform matured.",
-        "reflection": "I tested with only a few users, then shipped to everyone, and adoption came slowly. Now I grow a pilot group step by step, with explanation and feedback before a full rollout."
+        "action": "At first we hardcoded vendor products by hand. **Each change took one developer hour** from the sprint goal. Once that lost time outweighed the cost of building a tool, I chose to **give sales the keys**. I shipped a platform where they overrode the logic themselves, and **the logic still filled every spot they left alone**.",
+        "result": "Over 100 sales and content colleagues used it. **Vendor placements added €140k** in the first 12 months, and hardcoded changes faded out as the platform matured.",
+        "reflection": "I tested with only a few users, then shipped to everyone, and adoption came slowly. Now I **grow a pilot group step by step**, with explanation and feedback before a full rollout."
       },
       "metrics": [],
       "aiApplications": []
@@ -246,11 +246,11 @@
       "tags": [],
       "experience": "Coolblue PO",
       "starr": {
-        "situation": "Coolblue sold in the Netherlands, Belgium and Germany, with Germany as the priority. Cross-sell treated all three the same.",
-        "task": "I had to make cross-sell fit each market without splitting the platform.",
-        "action": "One accessory could not be offered in Germany, so we either dropped it everywhere or invited German returns. I added country-specific overrides to the sales platform. German customers also lean on reviews far more than Dutch ones, so I split-tested a German page that put reviews first.",
-        "result": "Attached margin per order in Germany rose 8%. Sales could now run brand launches in one country only.",
-        "reflection": "My scope was cross-sell for the whole company, so I never studied Germany deeply. An adjacent team later found payment methods hurt German order completion. Today I would start with cheap per-market tests instead of assuming one design fits all."
+        "situation": "Coolblue sold in the Netherlands, Belgium and Germany, with Germany as the priority. **Cross-sell treated all three the same.**",
+        "task": "I had to make cross-sell fit each market **without splitting the platform**.",
+        "action": "One accessory could not be offered in Germany, so we either dropped it everywhere or invited German returns. I **added country-specific overrides** to the sales platform. German customers also lean on reviews far more than Dutch ones, so I **split-tested a German page that put reviews first**.",
+        "result": "**Attached margin per order in Germany rose 8%.** Sales could now run brand launches in one country only.",
+        "reflection": "My scope was cross-sell for the whole company, so I never studied Germany deeply. An adjacent team later found payment methods hurt German order completion. Today I would **start with cheap per-market tests** instead of assuming one design fits all."
       },
       "metrics": [],
       "aiApplications": []
@@ -263,11 +263,11 @@
       "tags": [],
       "experience": "Coolblue PO",
       "starr": {
-        "situation": "Over 100 category team members in sales, content and marketing relied on my products to grow attached margin. I owned cross-sell, upsell, installation services and our five website languages.",
-        "task": "I needed their feedback early, without losing my time for building.",
-        "action": "Feedback often reached me late or secondhand, which slowed development. A feedback form did not fix it, because it lacked personal contact. So I divided the work with the existing specialists, whom I spoke with daily. They handled what existing features or a Google Sheet could solve. I met the teams myself in presentations, one-on-ones and pilot groups.",
-        "result": "Category team members started messaging me directly, and feedback arrived while it could still shape the build.",
-        "reflection": "Balance was the hard part. Go too deep with every team and you lose the overview. Delegate everything and you build blind. I now decide per topic what I handle myself and what I delegate."
+        "situation": "**Over 100 category team members** in sales, content and marketing relied on my products to grow attached margin. I owned cross-sell, upsell, installation services and our five website languages.",
+        "task": "I needed their **feedback early**, without losing my time for building.",
+        "action": "Feedback often reached me late or secondhand, which slowed development. A feedback form did not fix it, because it lacked personal contact. So I **divided the work with the existing specialists**, whom I spoke with daily. They handled what existing features or a Google Sheet could solve. **I met the teams myself** in presentations, one-on-ones and pilot groups.",
+        "result": "Category team members **started messaging me directly**, and feedback arrived while it could still shape the build.",
+        "reflection": "Balance was the hard part. Go too deep with every team and you lose the overview. Delegate everything and you build blind. I now **decide per topic** what I handle myself and what I delegate."
       },
       "metrics": [],
       "aiApplications": []

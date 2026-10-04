@@ -44,6 +44,10 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
+function formatRichText(value) {
+  return escapeHtml(value).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+}
+
 async function loadJson(url) {
   const response = await fetch(url);
   if (!response.ok) throw new Error(`Unable to load ${url}`);
@@ -78,7 +82,7 @@ function createModal(caseItem) {
   const starr = caseItem.starr || {};
   const sections = STARR_LABELS
     .filter(([key]) => starr[key] && starr[key].trim())
-    .map(([key, label]) => `<div class="starr-row"><h4>${escapeHtml(label)}</h4><p>${escapeHtml(starr[key])}</p></div>`)
+    .map(([key, label]) => `<div class="starr-row"><h4>${escapeHtml(label)}</h4><p>${formatRichText(starr[key])}</p></div>`)
     .join('');
   const metrics = caseItem.metrics || [];
   const aiApplications = caseItem.aiApplications || [];
