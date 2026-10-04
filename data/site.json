@@ -74,39 +74,39 @@
   ],
   "experience": [
     {
-      "role": "Customer Services Agent",
-      "company": "ONVZ Health Insurances",
-      "period": "Nov 2014 — Jul 2021",
-      "summary": "Started with direct customer problem-solving and grew into leading journey improvements in a complex regulated environment.",
+      "role": "Product Manager & AI Specialist",
+      "company": "Self-directed development, Kuala Lumpur",
+      "period": "Sep 2026 - Present",
+      "summary": "Building AI tools with agentic coding, one already in daily use.",
+      "type": "present"
+    },
+    {
+      "role": "Product Manager",
+      "company": "Coolblue Energie",
+      "period": "Jan 2025 - Sep 2026",
+      "summary": "Owned two customer-facing AI agents. The sales agent lifted conversion 6% in its first test, and the self-service agent cut term amount tickets 30%. Also led the regulatory pivot of the welcome benefit for 18 stores.",
+      "type": "recent"
+    },
+    {
+      "role": "Data Product Owner",
+      "company": "Coolblue",
+      "period": "Jun 2024 - Jan 2025",
+      "summary": "Set the product vision for a data platform serving 15+ data teams, and led adoption of a data observability tool, starting with one pilot team.",
       "type": "standard"
     },
     {
       "role": "Product Owner",
       "company": "Coolblue",
-      "period": "Jul 2021 — Jan 2024",
-      "summary": "Built a cross-sell orchestration platform and recommendation engine that connected insight, automation, and commercial outcomes.",
+      "period": "Jul 2021 - Jan 2024",
+      "summary": "Built margin-aware cross-sell logic worth about €3.5M margin a year, and a self-service platform that added €140k in vendor placements.",
       "type": "standard"
     },
     {
-      "role": "Sabbatical",
-      "company": "Travel & reflection",
-      "period": "Jan 2024 — Jun 2024",
-      "summary": "A short season of travel, cultural immersion, and personal reflection that reset how I work and lead.",
-      "type": "compact"
-    },
-    {
-      "role": "Data Product Owner",
-      "company": "Coolblue",
-      "period": "Jun 2024 — Jan 2025",
-      "summary": "Created a Data-as-a-Product vision for the central data platform team and aligned stakeholders around a strong operating model.",
-      "type": "recent"
-    },
-    {
-      "role": "Product Manager",
-      "company": "Coolblue Energie",
-      "period": "Jan 2025 — Present",
-      "summary": "Building growth-oriented product experiences in a regulated energy market while strengthening end-to-end delivery and AI-enabled support flows.",
-      "type": "present"
+      "role": "Customer Service Agent",
+      "company": "ONVZ (health insurance)",
+      "period": "Nov 2014 - Jul 2021",
+      "summary": "Seven years in health insurance customer service, across phone, email, live chat and social media. Led the customer service side of a product portfolio redesign and trained 140 agents on the change. Helped make insurance statements self-service, preventing urgent repeat calls.",
+      "type": "standard"
     }
   ],
   "toolkit": {
