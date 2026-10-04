@@ -19,7 +19,7 @@
       ],
       "cta": {
         "cv": { "label": "Open CV", "href": "Resume/Jordy_Graven_CV.pdf", "download": true },
-        "whatsapp": { "label": "WhatsApp", "href": "https://wa.me/31614831786" },
+        "whatsapp": { "label": "WhatsApp", "href": "https://wa.me/60123209054" },
         "linkedin": { "label": "LinkedIn", "href": "https://www.linkedin.com/in/jordy-graven-52429265/" }
       }
     },
@@ -182,7 +182,7 @@
   "contact": {
     "intro": "If you’re looking for a product-minded operator who can bridge strategy, AI, and execution, I’d love to hear from you.",
     "channels": [
-      { "type": "WhatsApp", "label": "WhatsApp", "value": "+31 6 14831786", "href": "https://wa.me/31614831786" },
+      { "type": "WhatsApp", "label": "WhatsApp", "value": "+60 12-320 9054", "href": "https://wa.me/60123209054" },
       { "type": "Email", "label": "Email", "value": "jordygraven@gmail.com", "href": "mailto:jordygraven@gmail.com" },
       { "type": "LinkedIn", "label": "LinkedIn", "value": "linkedin.com/in/jordy-graven-52429265", "href": "https://www.linkedin.com/in/jordy-graven-52429265/" }
     ]
