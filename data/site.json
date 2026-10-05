@@ -1,10 +1,9 @@
 {
   "brand": "Jordy Graven",
   "nav": [
-    { "label": "Work", "href": "#work" },
     { "label": "Experience", "href": "#experience" },
-    { "label": "Toolkit", "href": "#toolkit" },
     { "label": "Case studies", "href": "#case-studies" },
+    { "label": "Toolkit", "href": "#toolkit" },
     { "label": "About", "href": "#about" },
     { "label": "Contact", "href": "#contact" }
   ],
@@ -14,7 +13,7 @@
       "highlights": [
         { "title": "10+ years", "detail": "work experience" },
         { "title": "5 years", "detail": "in product, Western European e-commerce" },
-        { "title": "3 domains", "detail": "e-commerce, data platforms, energy and AI" }
+        { "title": "3 domains", "detail": "e-commerce, data platforms and utilities" }
       ],
       "cta": {
         "cv": { "label": "Open CV", "href": "Resume/Jordy_Graven_CV.pdf", "download": true },
@@ -26,7 +25,7 @@
       "pm": {
         "eyebrow": "AI-DRIVEN PRODUCT MANAGER",
         "headline": "I build product experiences that feel simple and useful, using the latest AI to get there faster.",
-        "subhead": "I'm a Product Manager who uses AI hands-on, every day. At Coolblue I took two AI agents into production. Today I build my own products with Claude Code, so I know what AI can do for a product and what it takes to ship it."
+        "subhead": "I'm a hands-on Product Manager. I run experiments to learn what is worth building, then I ship it, using AI and automation wherever they add value. At Coolblue that included taking two AI agents into production. Today I build my own products with Claude Code."
       },
       "ai-specialist": {
         "eyebrow": "HANDS-ON GENERATIVE AI SPECIALIST",
@@ -54,23 +53,6 @@
     { "role": "ai-specialist", "mode": "malaysia", "label": "AI Specialist", "shortLabel": "AI Specialist", "sublabel": "Malaysia", "href": "ai-malaysia.html" },
     { "role": "ai-specialist", "mode": "remote", "label": "AI Specialist", "shortLabel": "AI Specialist", "sublabel": "Remote", "href": "ai-remote.html" },
     { "role": "ai-specialist", "mode": "freelance", "label": "AI Specialist", "shortLabel": "AI Specialist", "sublabel": "Freelance", "href": "ai-freelance.html", "comingSoon": true }
-  ],
-  "valueCards": [
-    {
-      "title": "Product strategy",
-      "description": "I turn unclear growth challenges into practical product direction, clear priorities, and healthy decision-making.",
-      "tags": ["Discovery", "Roadmapping", "Portfolio thinking"]
-    },
-    {
-      "title": "Automation and AI",
-      "description": "I design AI-assisted workflows and agentic prototypes that make teams faster without losing control.",
-      "tags": ["AI concepts", "Prompt design", "Automation"]
-    },
-    {
-      "title": "Delivery and experimentation",
-      "description": "I connect product, data, and operations so ideas move from prototype to impact with structure and pace.",
-      "tags": ["Experimentation", "Data", "Delivery"]
-    }
   ],
   "experience": [
     {
@@ -131,19 +113,19 @@
         "items": [
           { "name": "Claude (Code)", "icon": "claude" },
           { "name": "Anthropic API", "icon": "anthropic" },
-          { "name": "LangSmith", "icon": "langchain" },
           { "name": "n8n", "icon": "n8n" },
-          { "name": "Glean" },
+          { "name": "LangSmith", "icon": "langchain" },
           { "name": "Replit", "icon": "replit" },
+          { "name": "GitHub", "icon": "github" },
+          { "name": "Supabase", "icon": "supabase" },
+          { "name": "Glean" },
           { "name": "Base44" },
           { "name": "Lovable" },
           { "name": "v0.app", "icon": "v0" },
           { "name": "Gemini", "icon": "googlegemini" },
           { "name": "ChatGPT" },
-          { "name": "Supabase", "icon": "supabase" },
           { "name": "Next.js", "icon": "nextdotjs" },
           { "name": "Docker", "icon": "docker" },
-          { "name": "GitHub", "icon": "github" },
           { "name": "Vercel", "icon": "vercel" },
           { "name": "VS Code" },
           { "name": "Ngrok", "icon": "ngrok" },
@@ -152,15 +134,16 @@
       }
     ]
   },
+  "topCaseStudies": ["ai-sales-agent", "self-service-agent", "margin-aware-cross-sell", "heat-pump-mid-funnel"],
   "caseStudySelections": {
-    "default": ["job-hunt-platform", "garmin-health-coach", "finance-dashboard", "ai-sales-agent", "self-service-agent", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "heat-pump-mid-funnel", "funnel-health", "data-product-vision", "monte-carlo-rollout", "margin-aware-cross-sell", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
+    "default": ["job-hunt-platform", "garmin-health-coach", "finance-dashboard", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "funnel-health", "data-product-vision", "monte-carlo-rollout", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
     "byVariant": {
-      "pm-malaysia": ["job-hunt-platform", "garmin-health-coach", "finance-dashboard", "ai-sales-agent", "self-service-agent", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "heat-pump-mid-funnel", "funnel-health", "data-product-vision", "monte-carlo-rollout", "margin-aware-cross-sell", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
-      "pm-remote": ["job-hunt-platform", "garmin-health-coach", "finance-dashboard", "ai-sales-agent", "self-service-agent", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "heat-pump-mid-funnel", "funnel-health", "data-product-vision", "monte-carlo-rollout", "margin-aware-cross-sell", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
-      "pm-freelance": ["job-hunt-platform", "garmin-health-coach", "finance-dashboard", "ai-sales-agent", "self-service-agent", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "heat-pump-mid-funnel", "funnel-health", "data-product-vision", "monte-carlo-rollout", "margin-aware-cross-sell", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
-      "ai-malaysia": ["job-hunt-platform", "garmin-health-coach", "finance-dashboard", "ai-sales-agent", "self-service-agent", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "heat-pump-mid-funnel", "funnel-health", "data-product-vision", "monte-carlo-rollout", "margin-aware-cross-sell", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
-      "ai-remote": ["job-hunt-platform", "garmin-health-coach", "finance-dashboard", "ai-sales-agent", "self-service-agent", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "heat-pump-mid-funnel", "funnel-health", "data-product-vision", "monte-carlo-rollout", "margin-aware-cross-sell", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
-      "ai-freelance": ["job-hunt-platform", "garmin-health-coach", "finance-dashboard", "ai-sales-agent", "self-service-agent", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "heat-pump-mid-funnel", "funnel-health", "data-product-vision", "monte-carlo-rollout", "margin-aware-cross-sell", "cross-sell-platform", "multi-market-localization", "ambassador-model"]
+      "pm-malaysia": ["job-hunt-platform", "garmin-health-coach", "finance-dashboard", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "funnel-health", "data-product-vision", "monte-carlo-rollout", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
+      "pm-remote": ["job-hunt-platform", "garmin-health-coach", "finance-dashboard", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "funnel-health", "data-product-vision", "monte-carlo-rollout", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
+      "pm-freelance": ["job-hunt-platform", "garmin-health-coach", "finance-dashboard", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "funnel-health", "data-product-vision", "monte-carlo-rollout", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
+      "ai-malaysia": ["job-hunt-platform", "garmin-health-coach", "finance-dashboard", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "funnel-health", "data-product-vision", "monte-carlo-rollout", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
+      "ai-remote": ["job-hunt-platform", "garmin-health-coach", "finance-dashboard", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "funnel-health", "data-product-vision", "monte-carlo-rollout", "cross-sell-platform", "multi-market-localization", "ambassador-model"],
+      "ai-freelance": ["job-hunt-platform", "garmin-health-coach", "finance-dashboard", "regulatory-store-pivot", "greylisting-fraud", "in-store-contract-mvp", "funnel-health", "data-product-vision", "monte-carlo-rollout", "cross-sell-platform", "multi-market-localization", "ambassador-model"]
     }
   },
   "about": {
