@@ -410,7 +410,7 @@ function renderSite(data, role, mode, allCaseStudies) {
       </div>
       <h3 class="case-top-label">Top case studies</h3>
       <div class="case-list case-list--top">${topCasesMarkup}</div>
-      <button type="button" class="text-button case-toggle" id="case-studies-toggle" aria-expanded="false" aria-controls="case-studies-grid">Show ${gridCount} more case studies</button>
+      <button type="button" class="button secondary case-toggle" id="case-studies-toggle" aria-expanded="false" aria-controls="case-studies-grid">Show ${gridCount} more case studies</button>
       <div class="case-list case-list--grid" id="case-studies-grid" hidden>${gridCasesMarkup}</div>
     </section>
 

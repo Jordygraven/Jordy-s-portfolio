@@ -602,8 +602,18 @@ img {
 }
 
 .case-toggle {
-  display: inline-flex;
-  margin: 16px 0 0;
+  display: flex;
+  width: fit-content;
+  margin: 16px auto 0;
+}
+
+.case-toggle::after {
+  content: "▾";
+  font-size: 0.7rem;
+}
+
+.case-toggle[aria-expanded="true"]::after {
+  content: "▴";
 }
 
 /* .case-list sets display:grid as an author rule, which otherwise overrides the
@@ -950,6 +960,10 @@ img {
 @media (max-width: 640px) {
   .starr-row {
     grid-template-columns: 1fr;
+  }
+
+  .case-toggle {
+    min-height: 44px;
   }
 
   .page-shell {
