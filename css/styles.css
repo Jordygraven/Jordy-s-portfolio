@@ -338,7 +338,6 @@ img {
 
 .hero-panel,
 .section,
-.card,
 .timeline-item,
 .contact-card,
 .resume-panel,
@@ -424,7 +423,6 @@ img {
 }
 
 .grid-2,
-.grid-3,
 .grid-4 {
   display: grid;
   gap: 16px;
@@ -434,35 +432,6 @@ img {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.grid-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.card {
-  padding: 18px;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background: rgba(255,255,255,0.68);
-}
-
-.card-icon {
-  width: 34px;
-  height: 34px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(31, 143, 139, 0.12);
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
-.card h3 {
-  margin: 0 0 8px;
-}
-
-.card p,
-.card li,
-.card span,
 .timeline-item p,
 .timeline-item li,
 .case-item p,
@@ -470,22 +439,6 @@ img {
 .resume-panel p,
 .resume-panel li {
   color: var(--muted);
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.tag {
-  display: inline-block;
-  border: 1px solid rgba(31, 143, 139, 0.16);
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  color: var(--accent);
 }
 
 .timeline {
@@ -635,6 +588,32 @@ img {
   letter-spacing: 0.14em;
 }
 
+.case-top-label {
+  margin: 0 0 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
+
+.case-item--top {
+  border-top: 3px solid var(--accent);
+}
+
+.case-toggle {
+  display: inline-flex;
+  margin: 16px 0 0;
+}
+
+/* .case-list sets display:grid as an author rule, which otherwise overrides the
+   browser's default [hidden] { display: none } UA-stylesheet rule regardless of
+   selector specificity (author rules always beat UA rules in the cascade) — without
+   this, the grid stays visible even while the hidden attribute is present. */
+.case-list--grid[hidden] {
+  display: none;
+}
+
 .text-button {
   margin-top: auto;
   border: 0;
@@ -756,6 +735,42 @@ img {
   width: 16px;
   height: 16px;
   display: block;
+}
+
+.toolkit-list-wrap--collapsible .toolkit-list {
+  position: relative;
+  overflow: hidden;
+  transition: max-height 200ms ease;
+}
+
+/* Attached to .toolkit-list itself (not the wrap) so the fade sits at the actual
+   clamped bottom edge, not the bottom of the wrap — which also contains the toggle
+   button below the list and would otherwise overlap it. */
+.toolkit-list-wrap--has-fade .toolkit-list::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 36px;
+  /* Solid, opaque end-color matching .toolkit-card's rgba(255,255,255,0.7) surface
+     composited over the page background — a semi-transparent end-color would let
+     the faded-out pills keep showing through underneath the fade. */
+  background: linear-gradient(to bottom, rgba(253, 253, 251, 0), #fdfdfb);
+  pointer-events: none;
+}
+
+.toolkit-toggle,
+.gallery-toggle {
+  display: inline-flex;
+  margin-top: 10px;
+}
+
+@media (min-width: 641px) {
+  .toolkit-toggle,
+  .gallery-toggle {
+    display: none;
+  }
 }
 
 .contact-card-item.whatsapp {
@@ -930,10 +945,6 @@ img {
   .case-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .grid-3 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 640px) {
@@ -1059,11 +1070,18 @@ img {
   }
 
   .grid-2,
-  .grid-3,
   .gallery,
   .ai-placeholder-row,
   .case-list {
     grid-template-columns: 1fr;
+  }
+
+  .gallery-thumb--extra {
+    display: none;
+  }
+
+  .gallery--expanded .gallery-thumb--extra {
+    display: block;
   }
 
   .switcher-group {

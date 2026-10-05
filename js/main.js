@@ -103,11 +103,12 @@ function createModal(caseItem) {
   `;
 }
 
-function showModal(caseItem) {
+function showModal(caseItem, location) {
   modalState = caseItem;
   trackEvent('case_study_opened', {
     case_title: caseItem.title,
     case_id: caseItem.id,
+    location,
     page: pageType
   });
   document.body.classList.add('modal-open');
@@ -142,12 +143,21 @@ function setupNavToggle() {
     toggle.setAttribute('aria-expanded', String(isOpen));
   });
 
-  panel.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
+  // Delegated so it keeps working once nav links are rendered asynchronously from data.
+  panel.addEventListener('click', (event) => {
+    if (event.target.closest('a')) {
       panel.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
-    });
+    }
   });
+}
+
+function renderNav(data) {
+  const nav = document.querySelector('.site-nav');
+  if (!nav) return;
+  nav.innerHTML = (data.nav || []).map(item =>
+    `<a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a>`
+  ).join('');
 }
 
 setupNavToggle();
@@ -235,18 +245,68 @@ function renderLightbox(items, index) {
   });
 }
 
-function renderSite(data, role, mode) {
-  const hero = mergeHero(data.hero, role, mode);
-  const valueCards = data.valueCards.map(card => `
-    <article class="card">
-      <div class="card-icon">✦</div>
-      <h3>${escapeHtml(card.title)}</h3>
-      <p>${escapeHtml(card.description)}</p>
-      <div class="tags">
-        ${card.tags.map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('')}
-      </div>
+function renderCaseCard(item, location) {
+  if (item.status === 'in-development') {
+    return `
+      <article class="case-item case-placeholder" data-clickable="false">
+        <span class="case-badge">In development</span>
+        <h3>${escapeHtml(item.title)}</h3>
+        <p>${escapeHtml(item.summary)}</p>
+      </article>
+    `;
+  }
+
+  return `
+    <article class="case-item${location === 'top' ? ' case-item--top' : ''}" data-clickable="true" data-case-id="${escapeHtml(item.id)}" data-location="${escapeHtml(location)}" tabindex="0" role="button" aria-label="Open case study: ${escapeHtml(item.title)}">
+      <span class="${getExperienceTagClass(item.experience)}">${escapeHtml(item.experience || '')}</span>
+      <h3>${escapeHtml(item.title)}</h3>
+      <p>${escapeHtml(item.summary)}</p>
     </article>
-  `).join('');
+  `;
+}
+
+function createCollapseToggle(button, { sectionName, expandedLabel, collapsedLabel, isExpanded, onExpand, onCollapse }) {
+  if (!button) return;
+  button.addEventListener('click', () => {
+    if (!isExpanded()) {
+      onExpand();
+      button.textContent = expandedLabel;
+      button.setAttribute('aria-expanded', 'true');
+      trackEvent('section_expanded', { section: sectionName });
+    } else {
+      onCollapse();
+      button.textContent = collapsedLabel;
+      button.setAttribute('aria-expanded', 'false');
+      const rect = button.getBoundingClientRect();
+      if (rect.top < 0 || rect.bottom > window.innerHeight) {
+        button.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  });
+}
+
+function buildTopAndGridCases(gridCases, topIds, allCaseStudies) {
+  const byId = new Map(allCaseStudies.map(item => [item.id, item]));
+  const gridIdSet = new Set(gridCases.map(item => item.id));
+
+  const topCases = topIds.reduce((list, id) => {
+    const item = byId.get(id);
+    if (!item) {
+      console.warn(`Unknown case study id in topCaseStudies: ${id}`);
+      return list;
+    }
+    if (gridIdSet.has(id)) {
+      console.warn(`Case study "${id}" appears in both topCaseStudies and the case studies grid`);
+    }
+    list.push(item);
+    return list;
+  }, []);
+
+  return { topCases, gridCases };
+}
+
+function renderSite(data, role, mode, allCaseStudies) {
+  const hero = mergeHero(data.hero, role, mode);
 
   const experience = data.experience.map(item => `
     <article class="timeline-item ${escapeHtml(item.type || '')}">
@@ -259,49 +319,43 @@ function renderSite(data, role, mode) {
     </article>
   `).join('');
 
-  const toolkitMarkup = (data.toolkit && data.toolkit.groups || []).map(group => `
-    <div class="toolkit-card">
-      <h3>${escapeHtml(group.title)}</h3>
-      <div class="toolkit-list">
-        ${(group.items || []).map(item => {
-          const iconUrl = getToolIconUrl(item.icon);
-          return `
-          <span class="toolkit-item">
-            ${iconUrl ? `<img src="${escapeHtml(iconUrl)}" alt="" data-tool="${escapeHtml(item.name)}" />` : ''}
-            ${escapeHtml(item.name)}
-          </span>
-        `;
-        }).join('')}
-      </div>
-    </div>
-  `).join('');
-
-  const cases = (data.caseStudies || []).filter(item => {
-    if (item.status === 'published' || item.status === 'in-development') return true;
-    console.warn(`Unknown case study status "${item.status}" for id "${item.id}" — skipping`);
-    return false;
-  }).map(item => {
-    if (item.status === 'in-development') {
+  const toolkitMarkup = (data.toolkit && data.toolkit.groups || []).map((group, groupIndex) => {
+    const isCollapsible = groupIndex === 1; // "AI and build tools"
+    const listId = `toolkit-list-${groupIndex}`;
+    const itemsMarkup = (group.items || []).map(item => {
+      const iconUrl = getToolIconUrl(item.icon);
       return `
-        <article class="case-item case-placeholder" data-clickable="false">
-          <span class="case-badge">In development</span>
-          <h3>${escapeHtml(item.title)}</h3>
-          <p>${escapeHtml(item.summary)}</p>
-        </article>
+        <span class="toolkit-item">
+          ${iconUrl ? `<img src="${escapeHtml(iconUrl)}" alt="" data-tool="${escapeHtml(item.name)}" />` : ''}
+          ${escapeHtml(item.name)}
+        </span>
       `;
-    }
+    }).join('');
 
     return `
-      <article class="case-item" data-clickable="true" data-case-id="${escapeHtml(item.id)}" tabindex="0" role="button" aria-label="Open case study: ${escapeHtml(item.title)}">
-        <span class="${getExperienceTagClass(item.experience)}">${escapeHtml(item.experience || '')}</span>
-        <h3>${escapeHtml(item.title)}</h3>
-        <p>${escapeHtml(item.summary)}</p>
-      </article>
+      <div class="toolkit-card">
+        <h3>${escapeHtml(group.title)}</h3>
+        <div class="toolkit-list-wrap${isCollapsible ? ' toolkit-list-wrap--collapsible' : ''}">
+          <div class="toolkit-list" id="${listId}" ${isCollapsible ? 'data-toolkit-collapsible="true"' : ''}>${itemsMarkup}</div>
+          ${isCollapsible ? `<button type="button" class="text-button toolkit-toggle" id="${listId}-toggle" aria-expanded="false" aria-controls="${listId}">Show all tools</button>` : ''}
+        </div>
+      </div>
     `;
   }).join('');
 
+  const validCases = (data.caseStudies || []).filter(item => {
+    if (item.status === 'published' || item.status === 'in-development') return true;
+    console.warn(`Unknown case study status "${item.status}" for id "${item.id}" — skipping`);
+    return false;
+  });
+
+  const { topCases, gridCases } = buildTopAndGridCases(validCases, data.topCaseStudies || [], allCaseStudies || []);
+  const topCasesMarkup = topCases.map(item => renderCaseCard(item, 'top')).join('');
+  const gridCasesMarkup = gridCases.map(item => renderCaseCard(item, 'grid')).join('');
+  const gridCount = gridCases.length;
+
   const galleryItems = data.gallery || [];
-  const gallery = galleryItems.map((item, index) => `<button class="gallery-thumb" type="button" data-index="${index}" data-image="${escapeHtml(item.src)}" data-alt="${escapeHtml(item.alt)}"><img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}"></button>`).join('');
+  const gallery = galleryItems.map((item, index) => `<button class="gallery-thumb${index >= 3 ? ' gallery-thumb--extra' : ''}" type="button" data-index="${index}" data-image="${escapeHtml(item.src)}" data-alt="${escapeHtml(item.alt)}"><img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}"></button>`).join('');
 
   const contactChannels = data.contact.channels.map(item => `
     <a class="contact-card-item ${getContactClass(item.type || item.label)}" href="${escapeHtml(item.href)}" target="_blank" rel="noreferrer" data-contact="${escapeHtml(item.type || item.label)}">
@@ -343,13 +397,6 @@ function renderSite(data, role, mode) {
       </div>
     </section>
 
-    <section class="section" id="value">
-      <div class="section-header">
-        <h2>What I do</h2>
-      </div>
-      <div class="grid-3">${valueCards}</div>
-    </section>
-
     <section class="section" id="experience">
       <div class="section-header">
         <h2>Experience</h2>
@@ -357,18 +404,21 @@ function renderSite(data, role, mode) {
       <div class="timeline">${experience}</div>
     </section>
 
+    <section class="section" id="case-studies">
+      <div class="section-header">
+        <h2>Case studies</h2>
+      </div>
+      <h3 class="case-top-label">Top case studies</h3>
+      <div class="case-list case-list--top">${topCasesMarkup}</div>
+      <button type="button" class="text-button case-toggle" id="case-studies-toggle" aria-expanded="false" aria-controls="case-studies-grid">Show ${gridCount} more case studies</button>
+      <div class="case-list case-list--grid" id="case-studies-grid" hidden>${gridCasesMarkup}</div>
+    </section>
+
     <section class="section" id="toolkit">
       <div class="section-header">
         <h2>${escapeHtml(data.toolkit.title)}</h2>
       </div>
       <div class="toolkit-grid">${toolkitMarkup}</div>
-    </section>
-
-    <section class="section" id="case-studies">
-      <div class="section-header">
-        <h2>Case studies</h2>
-      </div>
-      <div class="case-list">${cases}</div>
     </section>
 
     <section class="section" id="about">
@@ -382,8 +432,9 @@ function renderSite(data, role, mode) {
             ${data.about.traits.map(trait => `<li>${escapeHtml(trait)}</li>`).join('')}
           </ul>
         </div>
-        <div class="gallery">${gallery}</div>
+        <div class="gallery" id="about-gallery">${gallery}</div>
       </div>
+      <button type="button" class="text-button gallery-toggle" id="gallery-toggle" aria-expanded="false" aria-controls="about-gallery">See more photos</button>
     </section>
 
     <section class="section" id="contact">
@@ -405,15 +456,15 @@ function renderSite(data, role, mode) {
   });
 
   document.querySelectorAll('.case-item[data-clickable="true"]').forEach(card => {
-    card.addEventListener('click', () => {
-      const caseItem = (data.caseStudies || []).find(item => item.id === card.dataset.caseId);
-      if (caseItem) showModal(caseItem);
-    });
+    const openCard = () => {
+      const caseItem = (allCaseStudies || []).find(item => item.id === card.dataset.caseId);
+      if (caseItem) showModal(caseItem, card.dataset.location);
+    };
+    card.addEventListener('click', openCard);
     card.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        const caseItem = (data.caseStudies || []).find(item => item.id === card.dataset.caseId);
-        if (caseItem) showModal(caseItem);
+        openCard();
       }
     });
   });
@@ -441,6 +492,16 @@ function renderSite(data, role, mode) {
       });
       renderLightbox(galleryItems, index);
     });
+  });
+
+  const caseStudiesGrid = document.getElementById('case-studies-grid');
+  createCollapseToggle(document.getElementById('case-studies-toggle'), {
+    sectionName: 'case_studies',
+    expandedLabel: 'Show fewer case studies',
+    collapsedLabel: `Show ${gridCount} more case studies`,
+    isExpanded: () => caseStudiesGrid && !caseStudiesGrid.hasAttribute('hidden'),
+    onExpand: () => caseStudiesGrid && caseStudiesGrid.removeAttribute('hidden'),
+    onCollapse: () => caseStudiesGrid && caseStudiesGrid.setAttribute('hidden', '')
   });
 }
 
@@ -517,16 +578,130 @@ function renderSwitcher(data) {
   });
 }
 
+const TOOLKIT_BREAKPOINT = 640;
+
+function waitForToolkitAssetsReady(list) {
+  const images = Array.from(list.querySelectorAll('img'));
+  const fontsReady = (document.fonts && document.fonts.ready) || Promise.resolve();
+  const imagesReady = Promise.all(images.map(img => {
+    if (img.complete) return Promise.resolve();
+    return new Promise(resolve => {
+      img.addEventListener('load', resolve, { once: true });
+      img.addEventListener('error', resolve, { once: true });
+    });
+  }));
+  return Promise.all([fontsReady, imagesReady]);
+}
+
+function setupToolkitCollapse() {
+  const list = document.querySelector('[data-toolkit-collapsible="true"]');
+  if (!list) return;
+  const wrap = list.closest('.toolkit-list-wrap');
+  const button = wrap && wrap.querySelector('.toolkit-toggle');
+  if (!wrap || !button) return;
+
+  function measureAndApply() {
+    if (window.innerWidth > TOOLKIT_BREAKPOINT) {
+      list.style.maxHeight = '';
+      wrap.classList.remove('toolkit-list-wrap--collapsed', 'toolkit-list-wrap--has-fade');
+      return;
+    }
+
+    if (wrap.dataset.userExpanded === 'true') {
+      return; // respect the user's own choice; never silently re-collapse on resize
+    }
+
+    list.style.maxHeight = '';
+    wrap.classList.remove('toolkit-list-wrap--collapsed', 'toolkit-list-wrap--has-fade');
+
+    const items = Array.from(list.children);
+    if (!items.length) {
+      button.hidden = true;
+      return;
+    }
+
+    // getBoundingClientRect() is always viewport-relative, independent of which
+    // ancestor happens to be the positioned offsetParent — unlike offsetTop, it stays
+    // correct regardless of the .toolkit-list/.toolkit-list-wrap positioning setup.
+    const listTop = list.getBoundingClientRect().top;
+    const rowTops = [...new Set(items.map(el => Math.round(el.getBoundingClientRect().top)))].sort((a, b) => a - b);
+
+    if (rowTops.length <= 4) {
+      button.hidden = true;
+      return;
+    }
+
+    const fourthRowTop = rowTops[3];
+    const fourthRowItems = items.filter(el => Math.round(el.getBoundingClientRect().top) === fourthRowTop);
+    const collapsedHeight = Math.max(...fourthRowItems.map(el => el.getBoundingClientRect().bottom)) - listTop;
+
+    list.style.maxHeight = `${collapsedHeight}px`;
+    wrap.classList.add('toolkit-list-wrap--collapsed', 'toolkit-list-wrap--has-fade');
+    button.hidden = false;
+    button.setAttribute('aria-expanded', 'false');
+    button.textContent = 'Show all tools';
+  }
+
+  waitForToolkitAssetsReady(list).then(measureAndApply);
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(measureAndApply, 150);
+  });
+  window.addEventListener('orientationchange', measureAndApply);
+
+  createCollapseToggle(button, {
+    sectionName: 'toolkit',
+    expandedLabel: 'Show fewer tools',
+    collapsedLabel: 'Show all tools',
+    isExpanded: () => wrap.dataset.userExpanded === 'true',
+    onExpand: () => {
+      wrap.dataset.userExpanded = 'true';
+      list.style.maxHeight = '';
+      wrap.classList.remove('toolkit-list-wrap--collapsed', 'toolkit-list-wrap--has-fade');
+    },
+    onCollapse: () => {
+      wrap.dataset.userExpanded = 'false';
+      measureAndApply();
+    }
+  });
+}
+
+function setupGalleryCollapse() {
+  const gallery = document.getElementById('about-gallery');
+  const button = document.getElementById('gallery-toggle');
+  if (!gallery || !button) return;
+  const extras = gallery.querySelectorAll('.gallery-thumb--extra');
+  if (!extras.length) {
+    button.hidden = true;
+    return;
+  }
+
+  createCollapseToggle(button, {
+    sectionName: 'about',
+    expandedLabel: 'Show fewer photos',
+    collapsedLabel: 'See more photos',
+    isExpanded: () => gallery.classList.contains('gallery--expanded'),
+    onExpand: () => gallery.classList.add('gallery--expanded'),
+    onCollapse: () => gallery.classList.remove('gallery--expanded')
+  });
+}
+
 (async function init() {
   try {
     const [data, caseStudiesData] = await Promise.all([
       loadJson('data/site.json'),
       loadJson('data/case-studies.json')
     ]);
-    data.caseStudies = resolveCaseStudies(data.caseStudySelections, pageRole, pageMode, caseStudiesData.caseStudies || []);
-    renderSite(data, pageRole, pageMode);
+    const allCaseStudies = caseStudiesData.caseStudies || [];
+    data.caseStudies = resolveCaseStudies(data.caseStudySelections, pageRole, pageMode, allCaseStudies);
+    renderSite(data, pageRole, pageMode, allCaseStudies);
+    renderNav(data);
     renderSwitcher(data);
     renderHeaderWhatsapp(data);
+    setupToolkitCollapse();
+    setupGalleryCollapse();
     trackEvent('portfolio_page_view', { page: pageType, role: pageRole, mode: pageMode });
 
     document.querySelectorAll('a[href*="Jordy_Graven_CV.pdf"]').forEach(link => {
